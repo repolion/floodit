@@ -4,6 +4,9 @@
 #include <QJsonObject>
 #include <sstream>
 
+namespace oli {
+
+
 class HighScore
 {
 private:
@@ -20,10 +23,14 @@ public:
     void setHeight(int);
     void setBest(int);
     void setNbColors(int);
+    QString getId() const;
+    int getBest() const;
 
-    void read(const QJsonObject &json);
+    //void read(const QJsonObject &json);
     void write(QJsonObject &json) const;
 
 };
+
+}
 
 #endif // HIGHSCORE_H

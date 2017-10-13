@@ -5,6 +5,11 @@
 #include "observer/observable.h"
 #include <list>
 #include <model/color.h>
+#include "HighScore.h"
+#include <QJsonObject>
+#include <QJsonDocument>
+#include <iostream>
+#include <QFile>
 
 namespace oli {
 
@@ -13,6 +18,7 @@ class Floodgame: public Observable
 private:
     bool _started;
     bool _isGameOver;
+    HighScore _highScore;
     Color _lastColor;
     Color _newColor;
     Board _board;
@@ -20,7 +26,8 @@ private:
     std::list<Position> _listCaptured;
     bool isGameOver();
     int _nbClick;
-
+    QJsonObject loadSavedScores()const ;
+    bool checkScores() const;
 
 public:
     Floodgame(int height,int width,int nbCol);
@@ -31,7 +38,7 @@ public:
     void init(int height,int width,int nbCol);
     void floodFill(int x,int y,Color newColor,Color oldColor,int cpt);
     void setNewColor(Color color);
-    static std::string getColor(Color color);
+//    static std::string getColor(Color color);
     void changeCurrentColor(Color color,int count);
     void printColor(int x,int y);
     bool getIsGameOver();

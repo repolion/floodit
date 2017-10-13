@@ -1,4 +1,5 @@
 #include "floodgame.h"
+
 namespace oli {
 
 Floodgame::Floodgame(int height,int width,int nbColors)
@@ -18,6 +19,7 @@ void Floodgame::init(int height,int width,int nbCol){
     _lastColor = _board.getSquare(0,0).getColor();
     _newColor = _board.getSquare(0,0).getColor();
     this->changeCurrentColor(_lastColor,0);
+    _highScore = HighScore();
 }
 
 Floodgame::~Floodgame(){}
@@ -34,38 +36,38 @@ void Floodgame::addCaptured(Position position){
     _listCaptured.push_back(position);
 }
 
-std::string Floodgame::getColor(Color color){
+//std::string Floodgame::getColor(Color color){
 
-    switch(color) {
-    case Color::RED:
-        return "rouge";
-        break;
-    case Color::GREEN:
-        return "vert";
-        break;
-    case Color::YELLOW:
-        return "jaune";
-        break;
-    case Color::BLUE:
-        return "bleu";
-        break;
-    case Color::PURPLE:
-        return "pourpre";
-        break;
-    case Color::DEEPPINK:
-        return "rose fonce";
-        break;
-    case Color::CYAN:
-        return "cyan";
-        break;
-    case Color::ORANGE:
-        return "orange";
-        break;
-    case Color::GREY:
-        return "gris";
-        break;
-    }
-}
+//    switch(color) {
+//    case Color::RED:
+//        return "rouge";
+//        break;
+//    case Color::GREEN:
+//        return "vert";
+//        break;
+//    case Color::YELLOW:
+//        return "jaune";
+//        break;
+//    case Color::BLUE:
+//        return "bleu";
+//        break;
+//    case Color::PURPLE:
+//        return "pourpre";
+//        break;
+//    case Color::DEEPPINK:
+//        return "rose fonce";
+//        break;
+//    case Color::CYAN:
+//        return "cyan";
+//        break;
+//    case Color::ORANGE:
+//        return "orange";
+//        break;
+//    case Color::GREY:
+//        return "gris";
+//        break;
+//    }
+//}
 
 void Floodgame::changeCurrentColor(Color color,int cpt){
     setNewColor(color);
@@ -76,7 +78,11 @@ void Floodgame::changeCurrentColor(Color color,int cpt){
         floodFill(pos.getX(),pos.getY(),_newColor,_lastColor,cpt);
     }
     _isGameOver=isGameOver();
-    if(_isGameOver)std::cout<<"finit en "<<_nbClick<<" clicks"<<std::endl;
+    if(_isGameOver){std::cout<<"finit en "<<_nbClick<<" clicks"<<std::endl;
+        _highScore = HighScore(_board.getWidth(),_board.getHeight(),_nbClick,_nbColors);
+        if (checkScores())std::cout<<"Record battut"<<std::endl;
+        else std::cout<<"pas de record"<<std::endl;
+    }
     Notify();
 }
 
@@ -113,10 +119,10 @@ void Floodgame::setNewColor(Color color){
 
 }
 
-void Floodgame::printColor(int x,int y){
-    std::cout<<getColor(_board.getSquare(x,y).getColor())<<std::endl;
+//void Floodgame::printColor(int x,int y){
+//    std::cout<<getColor(_board.getSquare(x,y).getColor())<<std::endl;
 
-}
+//}
 
 bool Floodgame::isGameOver(){
     return _listCaptured.size()==_board.getWidth()*_board.getHeight();
@@ -133,6 +139,50 @@ Color Floodgame::getLastColor(){
 void Floodgame::setNbClick(){
     ++_nbClick;
     std::cout<<"click "<<_nbClick<<std::endl;
+}
+
+QJsonObject Floodgame::loadSavedScores()const
+{
+    QFile loadFile(QStringLiteral("save.json"));
+
+    if (!loadFile.open(QIODevice::ReadOnly)) {
+        qWarning("Couldn't open save file.");
+         QJsonObject qjo;
+         return qjo;
+    }
+
+    QByteArray saveData = loadFile.readAll();
+
+    QJsonDocument loadDoc(QJsonDocument::fromJson(saveData));
+    loadFile.close();
+    return loadDoc.object();
+}
+
+bool Floodgame::checkScores() const
+{
+    QJsonObject gameObject;
+    gameObject =loadSavedScores();
+    QString id =_highScore.getId();
+    if( (gameObject.contains(id) && gameObject.value(id).toInt()>_highScore.getBest())
+            || (!gameObject.contains(id)) ) {
+        _highScore.write(gameObject);
+    }else
+    {
+        return false;
+    }
+
+
+    QFile saveFile(QStringLiteral("save.json"));
+
+    if (!saveFile.open(QIODevice::WriteOnly)) {
+        qWarning("Couldn't open save file.");
+        return false;
+    }
+    QJsonDocument saveDoc(gameObject);
+    saveFile.write(saveDoc.toJson());
+    std::cout<<"dans savegame true"<<std::endl;
+    saveFile.close();
+    return true;
 }
 
 

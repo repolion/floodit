@@ -39,7 +39,8 @@ SOURCES += main.cpp\
     view/mainwindow.cpp \
     view/menustart.cpp \
     view/options.cpp \
-    view/widgetGame.cpp
+    view/widgetGame.cpp \
+    model/HighScore.cpp
 
 HEADERS  += \
     model/board.h \
@@ -56,6 +57,7 @@ HEADERS  += \
     view/mybutton.h \
     view/options.h \
     view/viewboard.h \
-    view/widgetGame.h
+    view/widgetGame.h \
+    model/HighScore.h
 
 FORMS    += mainwindow.ui
