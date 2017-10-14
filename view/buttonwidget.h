@@ -3,7 +3,6 @@
 
 
 #include <iostream>
-
 #include <QSignalMapper>
 #include <QPushButton>
 #include <QGridLayout>

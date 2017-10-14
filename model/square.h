@@ -1,13 +1,12 @@
 #ifndef SQUARE_H
 #define SQUARE_H
 
-#include "color.h"
-#include "position.h"
 #include <QColor>
 #include <random>
 #include <iostream>
 #include <time.h>
-
+#include "color.h"
+#include "position.h"
 
 namespace oli {
 

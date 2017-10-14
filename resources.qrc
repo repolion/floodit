@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/images"/>
+    <qresource prefix="/">
+        <file>images/gameOver1.png</file>
+        <file>images/gameOver2.png</file>
+        <file>images/highScore.png</file>
+    </qresource>
+</RCC>

@@ -6,17 +6,19 @@ ViewBoard::ViewBoard(){}
 
 ViewBoard::ViewBoard(QWidget &fenetre, Floodgame * game,int nbCol){
 
-//    int width = 300;
-//    int height = 300;
     _game = game;
     _ql = new QLabel(&fenetre);
-   // _ql->setStyleSheet("QLabel {background-color : red;color : blue;}");
+    _gameOver = new QLabel(&fenetre);
+    _gameOver->setFixedHeight(525);
+    _gameOver->setFixedWidth(720);
+    _gameOver->setAlignment(Qt::AlignCenter);
     _ql->setFixedHeight(525);
 
     _buttonWidget = new ButtonWidget(nbCol,&fenetre);
     _vBox = new QVBoxLayout();
     _hboxBoutons = new QHBoxLayout;
 
+    _nbClickLabel = new QLabel(&fenetre);
     QPushButton *restart = new QPushButton("Restart");
     restart->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
     QObject::connect(restart,SIGNAL(clicked()),&fenetre,SLOT(restart()));
@@ -30,23 +32,26 @@ ViewBoard::ViewBoard(QWidget &fenetre, Floodgame * game,int nbCol){
 
     fenetre.setLayout(_vBox);
     setDisplay();
+
     _vBox->addWidget(_ql);
+    _vBox->addWidget(_nbClickLabel);
     _vBox->addWidget(_buttonWidget);
     _vBox->setAlignment(_buttonWidget,Qt::AlignHCenter);
 
-
-
     _vBox->addLayout(_hboxBoutons);
+
 }
 
 void ViewBoard::setDisplay(){
+
+    _nbClickLabel->setText("Clicked "+QVariant(_game->getNbClick()).toString() +" times");
+    _nbClickLabel->setAlignment(Qt::AlignCenter);
 
     _width = _game->getBoard().getWidth();
     _height = _game->getBoard().getHeight();
 
     int brolWidth = _width;
     int brolHeight = _height;
-
     int block_width = 500 / [brolWidth, brolHeight](){
         int x;
         (brolWidth > brolHeight) ? x = brolWidth : x = brolHeight;
@@ -60,18 +65,20 @@ void ViewBoard::setDisplay(){
             QPainter painter(&_pixmap);
             painter.setPen(QColor(81,81,81,255));
             painter.setBrush(_game->getBoard().getSquare(i,j).getQColor());
+            if(_game->isGameOver())painter.setOpacity(0.1);
             QRect myQRect=(QRect(j*block_width,i*block_width,block_width,block_width));
-                    //    if(!_game->getBoard().getSquare(i,j).getCaptured()){
-            if(false){
-                QLinearGradient gradient(myQRect.topLeft(), myQRect.bottomRight());
-                gradient.setColorAt(0, QColor(245, 184, 184,255));
-                gradient.setColorAt(0.5,_game->getBoard().getSquare(i,j).getQColor());
-                painter.fillRect(myQRect, gradient);
-            }else
-                painter.drawRect(myQRect);
+            painter.drawRect(myQRect);
         }
     }
+    if(_game->isGameOver() && _game->isNewRecord()){
+        _gameOver->setPixmap(QPixmap(":/images/highScore.png").scaled(QSize(300,300),  Qt::KeepAspectRatio));
+    }
+    else if(_game->isGameOver()){
+        _gameOver->setPixmap(QPixmap(":/images/gameOver2.png").scaled(QSize(300,300),  Qt::KeepAspectRatio));
+    }
+    else _gameOver->setPixmap(QPixmap(""));
     _ql->setAlignment(Qt::AlignCenter);
+
     _ql->setPixmap(_pixmap);
 
 }

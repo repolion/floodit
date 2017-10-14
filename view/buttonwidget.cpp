@@ -18,16 +18,12 @@ ButtonWidget::ButtonWidget(int nbCol, QWidget *parent)
         connect(button, SIGNAL(clicked()), signalMapper, SLOT(map()));
         signalMapper->setMapping(button,i);
         gridLayout->addWidget(button, (i-1) / 8, (i-1) % 8);
-       // button->setGeometry(QRect(QPoint((45*i),350),QSize(45,45)));
-        //button->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-       // button->setContentsMargins(100,0,100,0);
     }
 
     connect(signalMapper, SIGNAL(mapped(int)),
             parent, SLOT(play(int)));
 
     setLayout(gridLayout);
-
 }
 
 QColor ButtonWidget::getQColor(Color col){
@@ -60,10 +56,8 @@ QColor ButtonWidget::getQColor(Color col){
     case Color::GREY:
         color = QColor(204,204,204,255);
         break;
-
     }
     return color;
 }
-
 
 }

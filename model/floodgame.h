@@ -1,15 +1,16 @@
 #ifndef FLOODGAME_H
 #define FLOODGAME_H
 
-#include "model/board.h"
-#include "observer/observable.h"
+
 #include <list>
 #include <model/color.h>
-#include "HighScore.h"
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <iostream>
 #include <QFile>
+#include "HighScore.h"
+#include "model/board.h"
+#include "observer/observable.h"
 
 namespace oli {
 
@@ -24,10 +25,11 @@ private:
     Board _board;
     int _nbColors;
     std::list<Position> _listCaptured;
-    bool isGameOver();
+
     int _nbClick;
     QJsonObject loadSavedScores()const ;
     bool checkScores() const;
+    bool _newRecord;
 
 public:
     Floodgame(int height,int width,int nbCol);
@@ -38,12 +40,14 @@ public:
     void init(int height,int width,int nbCol);
     void floodFill(int x,int y,Color newColor,Color oldColor,int cpt);
     void setNewColor(Color color);
-//    static std::string getColor(Color color);
     void changeCurrentColor(Color color,int count);
     void printColor(int x,int y);
     bool getIsGameOver();
     void setNbClick();
     Color getLastColor();
+    bool isGameOver();
+    bool isNewRecord();
+    int getNbClick();
 
 };
 

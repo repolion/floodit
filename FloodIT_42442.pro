@@ -61,3 +61,6 @@ HEADERS  += \
     model/HighScore.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    resources.qrc

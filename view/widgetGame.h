@@ -1,11 +1,11 @@
 #ifndef WIDGETGAME_H
 #define WIDGETGAME_H
 
-#include "view/viewboard.h"
-#include "model/floodgame.h"
 #include <QWidget>
 #include <QKeyEvent>
 #include <QStackedWidget>
+#include "view/viewboard.h"
+#include "model/floodgame.h"
 
 using namespace oli;
 

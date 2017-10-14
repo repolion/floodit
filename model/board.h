@@ -1,8 +1,8 @@
 #ifndef BOARD_H
 #define BOARD_H
 
-#include "square.h"
 #include <vector>
+#include "square.h"
 
 namespace oli {
 

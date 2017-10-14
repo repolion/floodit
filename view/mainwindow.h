@@ -20,7 +20,6 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-//    QStackedWidget getStack();
 
 private:
     Ui::MainWindow *ui;

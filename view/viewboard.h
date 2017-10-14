@@ -4,6 +4,7 @@
 #include <QLabel>
 #include <QPainter>
 #include <QHBoxLayout>
+#include <QVariant>
 #include "observer/observer.h"
 #include "model/floodgame.h"
 #include "mybutton.h"
@@ -18,15 +19,14 @@ private:
     int _width;
     int _height;
     QVBoxLayout *_vBox;
-//    QPixmap _pixmap;
     QLabel * _ql;
+    QLabel * _gameOver;
+    QLabel *  _nbClickLabel;
     Color _myColor;
     ButtonWidget *_buttonWidget;
     QHBoxLayout * _hboxBoutons;
 
-   // void addColors(QStringList &texts,int nbColors);
 private slots:
-
 
 signals:
     void test();
@@ -36,7 +36,6 @@ public:
     ViewBoard(QWidget &fenetre, Floodgame * game,int nbCol);
     void setDisplay();
     void Update();
-  //  std::string getColor(Color _myColor);
 };
 
 }
