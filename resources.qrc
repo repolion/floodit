@@ -4,5 +4,6 @@
         <file>images/gameOver1.png</file>
         <file>images/gameOver2.png</file>
         <file>images/highScore.png</file>
+        <file>images/test.jpg</file>
     </qresource>
 </RCC>

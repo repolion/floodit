@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QLabel>
+#include <QPixmap>
+#include <QPalette>
 
 namespace Ui {
 class Widget;

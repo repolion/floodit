@@ -9,12 +9,6 @@ WidgetGame::WidgetGame(int height,int width,int nbCol,QWidget *parent) :
 
     _game->AddObs(&_viewboard);
 
-   // QPixmap bkgnd(":/images/galaxy.jpg");
-  //  QPalette palette;
-   // palette.setBrush(QPalette::Background, bkgnd);
-   // this->setPalette(palette);
-    //this->setFixedSize(700,660);
-
     connect(this,SIGNAL(reemitMain()),parent,SLOT(cancel()));
 }
 
