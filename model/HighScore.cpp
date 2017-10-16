@@ -3,12 +3,16 @@
 namespace oli {
 
 HighScore::HighScore(){}
-
+HighScore::HighScore(int width,int height,int nbColors){
+    _width = width;
+    _height = height;
+    _nbColors = nbColors;
+}
 HighScore::HighScore(int width,int height,int best,int nbColors){
     _width = width;
     _height = height;
-    _best = best;
     _nbColors = nbColors;
+    _best = best; 
 }
 void HighScore::setWidth(int width){
     _width = width;

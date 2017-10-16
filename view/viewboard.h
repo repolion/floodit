@@ -21,11 +21,12 @@ private:
     QVBoxLayout *_vBox;
     QLabel * _ql;
     QLabel * _gameOver;
+    QLabel *  _record;
     QLabel *  _nbClickLabel;
     Color _myColor;
     ButtonWidget *_buttonWidget;
     QHBoxLayout * _hboxBoutons;
-
+    int _valueRecord;
 private slots:
 
 signals:

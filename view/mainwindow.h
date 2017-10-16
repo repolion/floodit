@@ -28,6 +28,7 @@ private:
     MenuStart *_menuStart;
     Options *_options;
     WidgetGame *_wg;
+    void setBackground(QString image);
 
 public slots:
 

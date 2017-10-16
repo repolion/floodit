@@ -8,23 +8,28 @@ ViewBoard::ViewBoard(QWidget &fenetre, Floodgame * game,int nbCol){
 
     _game = game;
     _ql = new QLabel(&fenetre);
+    _ql->setFixedHeight(525);
+
     _gameOver = new QLabel(&fenetre);
     _gameOver->setFixedHeight(525);
     _gameOver->setFixedWidth(720);
     _gameOver->setAlignment(Qt::AlignCenter);
-    _ql->setFixedHeight(525);
 
     _buttonWidget = new ButtonWidget(nbCol,&fenetre);
     _vBox = new QVBoxLayout();
     _hboxBoutons = new QHBoxLayout;
-
+    _record = new QLabel(&fenetre);
     _nbClickLabel = new QLabel(&fenetre);
+
     QPushButton *restart = new QPushButton("Restart");
-    restart->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-    QObject::connect(restart,SIGNAL(clicked()),&fenetre,SLOT(restart()));
     QPushButton *quit = new QPushButton("Quit");
-    quit->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+
     QObject::connect(quit,SIGNAL(clicked()),&fenetre,SLOT(reemit()));
+    QObject::connect(restart,SIGNAL(clicked()),&fenetre,SLOT(restart()));
+
+    quit->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    restart->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+
     _hboxBoutons->addWidget(restart);
     _hboxBoutons->addWidget(quit);
     _hboxBoutons->setAlignment(restart,Qt::AlignRight);
@@ -34,6 +39,7 @@ ViewBoard::ViewBoard(QWidget &fenetre, Floodgame * game,int nbCol){
     setDisplay();
 
     _vBox->addWidget(_ql);
+    _vBox->addWidget(_record);
     _vBox->addWidget(_nbClickLabel);
     _vBox->addWidget(_buttonWidget);
     _vBox->setAlignment(_buttonWidget,Qt::AlignHCenter);
@@ -44,8 +50,17 @@ ViewBoard::ViewBoard(QWidget &fenetre, Floodgame * game,int nbCol){
 
 void ViewBoard::setDisplay(){
 
+    if((_valueRecord =_game->getRecord())==0){
+        _record->setText("");
+    }else{
+        _record->setText("Record: "+QVariant(_valueRecord).toString()+" clicks");
+        _record->setAlignment(Qt::AlignCenter);
+        _record->setStyleSheet("QLabel { background-color : transparent; color : orange; }");
+    }
+
     _nbClickLabel->setText("Clicked "+QVariant(_game->getNbClick()).toString() +" times");
     _nbClickLabel->setAlignment(Qt::AlignCenter);
+    _nbClickLabel->setStyleSheet("QLabel { background-color : transparent; color : white; }");
 
     _width = _game->getBoard().getWidth();
     _height = _game->getBoard().getHeight();
@@ -57,17 +72,22 @@ void ViewBoard::setDisplay(){
         (brolWidth > brolHeight) ? x = brolWidth : x = brolHeight;
         return x;
     }();
-
-    QPixmap _pixmap = QPixmap(_width*block_width+1,_height*block_width+1);
+    QPixmap _pixmap;
+    if(!_game->isGameOver()){
+        _pixmap= QPixmap(_width*block_width+1,_height*block_width+1);
+    }
+    else _pixmap = QPixmap(490,490);
     _pixmap.fill(QColor("blue"));
-    for(int i = 0; i < _height; i++){
-        for (int j = 0; j < _width; j++){
-            QPainter painter(&_pixmap);
-            painter.setPen(QColor(81,81,81,255));
-            painter.setBrush(_game->getBoard().getSquare(i,j).getQColor());
-            if(_game->isGameOver())painter.setOpacity(0.1);
-            QRect myQRect=(QRect(j*block_width,i*block_width,block_width,block_width));
-            painter.drawRect(myQRect);
+    if(!_game->isGameOver()){
+        for(int i = 0; i < _height; i++){
+            for (int j = 0; j < _width; j++){
+                QPainter painter(&_pixmap);
+                painter.setPen(QColor(81,81,81,255));
+                painter.setBrush(_game->getBoard().getSquare(i,j).getQColor());
+
+                QRect myQRect=(QRect(j*block_width,i*block_width,block_width,block_width));
+                painter.drawRect(myQRect);
+            }
         }
     }
     if(_game->isGameOver() && _game->isNewRecord()){

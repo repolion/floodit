@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "square.h"
+#include "floodexception.h"
 
 namespace oli {
 

@@ -6,13 +6,8 @@ Square::Square(){
 
 }
 Square::Square(Position position, int nbCol){
-    //erreur si nbCol > 9 !!!
     _position = position;
-    //    _color = static_cast<Color>(rand()%6);
-//        srand((int)time(0));
         int randomNumber = (random(0,nbCol));
-       // RED,GREEN,YELLOW,BLUE,PURPLE,DEEPPINK,CYAN,ORANGE,GREY
-   // std::cout<<randomNumber<<std::endl;
     _color = static_cast<Color>(randomNumber);
     _captured = false;
 }
@@ -26,7 +21,6 @@ Square::Square(Position position,Color color){
 Square::~Square(){}
 
 void Square::setColor(Color color){
-    //std::cout<<"set color"<<std::endl;
     _color = color;
 }
 

@@ -7,12 +7,15 @@ Options::Options(QWidget *parent) :
     QHBoxLayout *boxSize = new QHBoxLayout();
     QHBoxLayout *boxWidth = new QHBoxLayout();
     QLabel *width = new QLabel("width");
+    width->setStyleSheet("QLabel { background-color : transparent; color : white; }");
     _spinWidth = new QSpinBox();
     QHBoxLayout *boxHeight = new QHBoxLayout();
     QLabel *height = new QLabel("height");
+    height->setStyleSheet("QLabel { background-color : transparent; color : white; }");
     _spinHeight = new QSpinBox();
     QHBoxLayout *boxColors = new QHBoxLayout();
     QLabel *nbColors = new QLabel("Number of colors");
+    nbColors->setStyleSheet("QLabel { background-color : transparent; color : white; }");
     _spinColors = new QSpinBox();
     QPushButton *start = new QPushButton("Start");
     QPushButton *cancel = new QPushButton("Cancel");
@@ -51,16 +54,11 @@ Options::Options(QWidget *parent) :
 
     boxAll->setAlignment(start,Qt::AlignCenter);
     boxAll->setAlignment(cancel,Qt::AlignCenter);
-   // boxAll->setAlignment(start,Qt::AlignBottom);
-   // boxAll->setAlignment(cancel,Qt::AlignTop);
     boxAll->setAlignment(Qt::AlignCenter);
     boxAll->setMargin(240);
 
-
-
     setLayout(boxAll);
 
-//    QPushButton *start = new QPushButton("Start",this);
     connect(this,(SIGNAL(options(int,int,int))),parent,SLOT(newGame(int,int,int)));
 }
 

@@ -4,7 +4,15 @@ namespace oli {
 
 Floodgame::Floodgame(int height,int width,int nbColors)
 {
-    init(height,width,nbColors);
+    try
+    {
+        init(height,width,nbColors);
+    }
+    catch (FloodException e)
+    {
+        std::cerr << e.what();
+        exit(0);
+    }
 }
 
 void Floodgame::init(int height,int width,int nbCol){
@@ -13,14 +21,24 @@ void Floodgame::init(int height,int width,int nbCol){
     _nbColors = nbCol;
     _started = true;
     _isGameOver = false;
-    _board = Board(height,width,_nbColors);
+    try
+    {
+        _board = Board(height,width,_nbColors);
+    }
+    catch (FloodException e)
+    {
+        std::cerr << e.what();
+        exit(0);
+    }
+
     _listCaptured.clear();
     _listCaptured.push_back(Position(0,0));
     _lastColor = _board.getSquare(0,0).getColor();
     _newColor = _board.getSquare(0,0).getColor();
     this->changeCurrentColor(_lastColor,0);
-    _highScore = HighScore();
+    _highScore = HighScore(_board.getWidth(),_board.getHeight(),_nbColors);
     _newRecord = false;
+
 }
 
 Floodgame::~Floodgame(){}
@@ -44,9 +62,8 @@ void Floodgame::changeCurrentColor(Color color,int cpt){
         floodFill(pos.getX(),pos.getY(),_newColor,_lastColor,cpt);
     }
     _isGameOver=isGameOver();
-    if(_isGameOver){std::cout<<"finit en "<<_nbClick<<" clicks"<<std::endl;
+    if(_isGameOver){
         _highScore = HighScore(_board.getWidth(),_board.getHeight(),_nbClick,_nbColors);
-
         if (checkScores())_newRecord=true;
     }
     Notify();
@@ -146,6 +163,20 @@ bool Floodgame::checkScores() const{
     saveFile.write(saveDoc.toJson());
     saveFile.close();
     return true;
+}
+
+int Floodgame::getRecord(){
+    QJsonObject gameObject;
+    gameObject =loadSavedScores();
+    QString id =_highScore.getId();
+
+    if(gameObject.contains(id)){
+        return gameObject.value(id).toInt();
+    }
+    else{
+        return 0;
+    }
+
 }
 
 }

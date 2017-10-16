@@ -15,19 +15,17 @@ MainWindow::MainWindow(QWidget *parent) :
     _myStack->addWidget(_menuStart);
     _myStack->addWidget(_options);
 
-    //_wg = new WidgetGame(15,15,4,this);
-
     this->setCentralWidget(_myStack);
     _myStack->setCurrentIndex(0);
 
-    QTimer::singleShot(3000, [=](){
+    QTimer::singleShot(4000, [=](){
         _myStack->setCurrentIndex(1);
+        setBackground(":/images/choice.jpg");
     });
 
 }
 
-MainWindow::~MainWindow()
-{
+MainWindow::~MainWindow(){
     delete ui;
 }
 
@@ -35,11 +33,12 @@ void MainWindow::quickGame(){
     _wg = new WidgetGame(15,15,4,this);
     _myStack->insertWidget(3,_wg);
     _myStack->setCurrentIndex(3);
-
+    setBackground(":/images/bluedark.jpg");
 }
 
 void MainWindow::newGame(){
     _myStack->setCurrentIndex(2);
+    setBackground(":/images/options.jpg");
 }
 
 void MainWindow::newGame(int height,int width,int nbCol){
@@ -47,10 +46,19 @@ void MainWindow::newGame(int height,int width,int nbCol){
     _wg = new WidgetGame(height,width,nbCol,this);
     _myStack->insertWidget(3,_wg);
     _myStack->setCurrentIndex(3);
-
+    setBackground(":/images/bluedark.jpg");
 }
 
 void MainWindow::cancel(){
     _myStack->setCurrentIndex(1);
+    setBackground(":/images/choice.jpg");
+}
+
+void MainWindow::setBackground(QString image){
+    QPixmap bkgnd(image);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bkgnd);
+    this->setPalette(palette);
+    this->setFixedSize(720,660);
 }
 

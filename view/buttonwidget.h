@@ -9,6 +9,7 @@
 #include <QMap>
 #include <model/color.h>
 #include "view/mybutton.h"
+#include "colorConvert.h"
 
 namespace oli {
 
@@ -25,7 +26,7 @@ private slots:
 
 private:
     QSignalMapper *signalMapper;
-    QColor getQColor(Color col);
+    //QColor getQColor(Color col);
 };
 
 }

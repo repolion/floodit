@@ -58,7 +58,9 @@ HEADERS  += \
     view/options.h \
     view/viewboard.h \
     view/widgetGame.h \
-    model/HighScore.h
+    model/HighScore.h \
+    model/floodexception.h \
+    view/colorConvert.h
 
 FORMS    += mainwindow.ui
 

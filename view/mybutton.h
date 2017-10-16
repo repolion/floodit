@@ -3,6 +3,7 @@
 
 #include <QPushButton>
 #include "model/color.h"
+#include "colorConvert.h"
 
 namespace oli {
 
@@ -21,7 +22,7 @@ signals:
 
 private:
     QPushButton *_button;
-    QColor getQColor(Color color);
+    //QColor getQColor(Color color);
     Color _color;
 };
 

@@ -6,7 +6,6 @@ WidgetGame::WidgetGame(int height,int width,int nbCol,QWidget *parent) :
 {
     _game = new Floodgame(height,width,nbCol);
     _viewboard = ViewBoard(*this,_game,nbCol);
-
     _game->AddObs(&_viewboard);
 
     connect(this,SIGNAL(reemitMain()),parent,SLOT(cancel()));

@@ -48,6 +48,7 @@ public:
     bool isGameOver();
     bool isNewRecord();
     int getNbClick();
+    int getRecord();
 
 };
 

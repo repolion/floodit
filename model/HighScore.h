@@ -19,6 +19,7 @@ private:
 public:
     HighScore();
     HighScore(int,int,int,int);
+    HighScore(int, int, int);
     void setWidth(int);
     void setHeight(int);
     void setBest(int);
