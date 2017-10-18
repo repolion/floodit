@@ -7,11 +7,15 @@
 #include <QVariant>
 #include "observer/observer.h"
 #include "model/floodgame.h"
-#include "mybutton.h"
 #include "buttonwidget.h"
+#include "colorConvert.h"
 
 namespace oli {
 
+/*!
+ * \brief The ViewBoard class
+ * the class that create and refresh the game's board view
+ */
 class ViewBoard: public Observer
       {
 private:

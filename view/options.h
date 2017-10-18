@@ -11,7 +11,10 @@
 namespace Ui {
 class Widget;
 }
-
+/*!
+ * \brief The Options class
+ * the class that make possible to change new game's options
+ */
 class Options :public QWidget{
     Q_OBJECT
 

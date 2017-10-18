@@ -11,9 +11,11 @@ MainWindow::MainWindow(QWidget *parent) :
     _intro = new Intro(this);
     _menuStart = new MenuStart(this);
     _options = new Options(this);
+    _reset = new Reset(this);
     _myStack->addWidget(_intro);
     _myStack->addWidget(_menuStart);
     _myStack->addWidget(_options);
+    _myStack->addWidget(_reset);
 
     this->setCentralWidget(_myStack);
     _myStack->setCurrentIndex(0);
@@ -31,8 +33,8 @@ MainWindow::~MainWindow(){
 
 void MainWindow::quickGame(){
     _wg = new WidgetGame(15,15,4,this);
-    _myStack->insertWidget(3,_wg);
-    _myStack->setCurrentIndex(3);
+    _myStack->insertWidget(4,_wg);
+    _myStack->setCurrentIndex(4);
     setBackground(":/images/bluedark.jpg");
 }
 
@@ -44,8 +46,8 @@ void MainWindow::newGame(){
 void MainWindow::newGame(int height,int width,int nbCol){
 
     _wg = new WidgetGame(height,width,nbCol,this);
-    _myStack->insertWidget(3,_wg);
-    _myStack->setCurrentIndex(3);
+    _myStack->insertWidget(4,_wg);
+    _myStack->setCurrentIndex(4);
     setBackground(":/images/bluedark.jpg");
 }
 
@@ -62,3 +64,16 @@ void MainWindow::setBackground(QString image){
     this->setFixedSize(720,660);
 }
 
+void MainWindow::resetOrNot(){
+    _myStack->setCurrentIndex(3);
+    setBackground(":/images/reset.jpg");
+}
+
+void MainWindow::delScores(){
+    _myStack->setCurrentIndex(1);
+    setBackground(":/images/choice.jpg");
+    if( remove( "save.json" ) != 0 )
+        perror( "Error deleting file" );
+      else
+        puts( "File successfully deleted" );
+}

@@ -1,18 +1,19 @@
 #ifndef BUTTONWIDGET_H
 #define BUTTONWIDGET_H
 
-
 #include <iostream>
 #include <QSignalMapper>
 #include <QPushButton>
 #include <QGridLayout>
 #include <QMap>
 #include <model/color.h>
-#include "view/mybutton.h"
 #include "colorConvert.h"
 
 namespace oli {
 
+/*!
+ * \brief The ButtonWidget class
+ */
 class ButtonWidget : public QWidget
 {
     Q_OBJECT
@@ -26,7 +27,6 @@ private slots:
 
 private:
     QSignalMapper *signalMapper;
-    //QColor getQColor(Color col);
 };
 
 }

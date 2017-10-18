@@ -8,11 +8,18 @@
 #include "intro.h"
 #include "menustart.h"
 #include "options.h"
+#include "reset.h"
 
 namespace Ui {
 class MainWindow;
 }
 
+/*!
+ * \brief The MainWindow class
+ * The application's controller
+ * This class manage the different view of the application
+ * and the has the game object
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -27,11 +34,13 @@ private:
     Intro *_intro;
     MenuStart *_menuStart;
     Options *_options;
+    Reset * _reset;
     WidgetGame *_wg;
     void setBackground(QString image);
 
 public slots:
-
+    void delScores();
+    void resetOrNot();
     void cancel();
     void quickGame();
     void newGame();

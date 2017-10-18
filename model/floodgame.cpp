@@ -112,7 +112,6 @@ Color Floodgame::getLastColor(){
 
 void Floodgame::setNbClick(){
     ++_nbClick;
-    std::cout<<"click "<<_nbClick<<std::endl;
 }
 
 bool Floodgame::isNewRecord(){
@@ -127,7 +126,6 @@ QJsonObject Floodgame::loadSavedScores()const{
     QFile loadFile(QStringLiteral("save.json"));
 
     if (!loadFile.open(QIODevice::ReadOnly)) {
-        qWarning("Aucun fichier de sauvegarde trouvé, un nouveau fichier a été crée.");
         QJsonObject qjo;
         return qjo;
     }
@@ -156,7 +154,6 @@ bool Floodgame::checkScores() const{
     QFile saveFile(QStringLiteral("save.json"));
 
     if (!saveFile.open(QIODevice::WriteOnly)) {
-        qWarning("Impossible d'ouvrir le fichier de sauvegarde pour inscrire nouveau record");
         return false;
     }
     QJsonDocument saveDoc(gameObject);

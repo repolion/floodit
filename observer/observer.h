@@ -8,8 +8,6 @@
 
 namespace oli{
 
-//typedef std::list<Block> listBlocks;
-
 class Observable;
 
 /*!

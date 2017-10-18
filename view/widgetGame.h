@@ -9,6 +9,10 @@
 
 using namespace oli;
 
+/*!
+ * \brief The WidgetGame class
+ * the widget containing the game's view
+ */
 class WidgetGame : public QWidget
 {
     Q_OBJECT
@@ -16,7 +20,6 @@ class WidgetGame : public QWidget
 public:
     explicit WidgetGame(int height,int width,int nbCol,QWidget *parent = 0);
     ~WidgetGame();
-
 
 private slots:
     void reemit();

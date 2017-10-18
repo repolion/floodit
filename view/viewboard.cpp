@@ -83,8 +83,7 @@ void ViewBoard::setDisplay(){
             for (int j = 0; j < _width; j++){
                 QPainter painter(&_pixmap);
                 painter.setPen(QColor(81,81,81,255));
-                painter.setBrush(_game->getBoard().getSquare(i,j).getQColor());
-
+                painter.setBrush(ColorConvert::getQColor(_game->getBoard().getSquare(i,j).getColor()));
                 QRect myQRect=(QRect(j*block_width,i*block_width,block_width,block_width));
                 painter.drawRect(myQRect);
             }

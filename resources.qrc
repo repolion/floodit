@@ -7,5 +7,6 @@
         <file>images/bluedark.jpg</file>
         <file>images/options.jpg</file>
         <file>images/choice.jpg</file>
+        <file>images/reset.jpg</file>
     </qresource>
 </RCC>

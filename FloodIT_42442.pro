@@ -32,7 +32,6 @@ SOURCES += main.cpp\
     model/square.cpp \
     observer/observable.cpp \
     observer/observer.cpp \
-    view/mybutton.cpp \
     view/viewboard.cpp \
     view/buttonwidget.cpp \
     view/intro.cpp \
@@ -40,7 +39,8 @@ SOURCES += main.cpp\
     view/menustart.cpp \
     view/options.cpp \
     view/widgetGame.cpp \
-    model/HighScore.cpp
+    model/HighScore.cpp \
+    view/reset.cpp
 
 HEADERS  += \
     model/board.h \
@@ -54,13 +54,13 @@ HEADERS  += \
     view/intro.h \
     view/mainwindow.h \
     view/menustart.h \
-    view/mybutton.h \
     view/options.h \
     view/viewboard.h \
     view/widgetGame.h \
     model/HighScore.h \
     model/floodexception.h \
-    view/colorConvert.h
+    view/colorConvert.h \
+    view/reset.h
 
 FORMS    += mainwindow.ui
 

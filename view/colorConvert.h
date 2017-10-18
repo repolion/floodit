@@ -4,7 +4,10 @@
 #include <QColor>
 
 namespace oli{
-
+/*!
+ * \brief The ColorConvert class
+ * Class used by others class to convert a color to a QColor
+ */
 class ColorConvert{
 
 public:

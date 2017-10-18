@@ -10,7 +10,10 @@
 namespace Ui {
 class Widget;
 }
-
+/*!
+ * \brief The Intro class
+ * The class launched during a few seconds at the begining of the program launch
+ */
 class Intro :public QWidget{
     Q_OBJECT
 

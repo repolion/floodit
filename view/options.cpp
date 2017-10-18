@@ -6,33 +6,37 @@ Options::Options(QWidget *parent) :
     QVBoxLayout *boxAll = new QVBoxLayout();
     QHBoxLayout *boxSize = new QHBoxLayout();
     QHBoxLayout *boxWidth = new QHBoxLayout();
+
+
     QLabel *width = new QLabel("width");
-    width->setStyleSheet("QLabel { background-color : transparent; color : white; }");
-    _spinWidth = new QSpinBox();
+
     QHBoxLayout *boxHeight = new QHBoxLayout();
     QLabel *height = new QLabel("height");
-    height->setStyleSheet("QLabel { background-color : transparent; color : white; }");
-    _spinHeight = new QSpinBox();
     QHBoxLayout *boxColors = new QHBoxLayout();
     QLabel *nbColors = new QLabel("Number of colors");
-    nbColors->setStyleSheet("QLabel { background-color : transparent; color : white; }");
-    _spinColors = new QSpinBox();
     QPushButton *start = new QPushButton("Start");
     QPushButton *cancel = new QPushButton("Cancel");
-    start->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
-    cancel->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
 
-    _spinColors->setRange(2,8);
-    _spinColors->setValue(4);
-
-    _spinHeight->setRange(5,35);
-    _spinHeight->setValue(10);
-
+    _spinWidth = new QSpinBox();
     _spinWidth->setRange(5,35);
     _spinWidth->setValue(10);
 
-    connect(cancel,SIGNAL(clicked()),parent,SLOT(cancel()));
+    _spinHeight = new QSpinBox();
+    _spinHeight->setRange(5,35);
+    _spinHeight->setValue(10);
 
+    _spinColors = new QSpinBox();
+    _spinColors->setRange(2,8);
+    _spinColors->setValue(4);
+
+    width->setStyleSheet("QLabel { background-color : transparent; color : white; }");
+    height->setStyleSheet("QLabel { background-color : transparent; color : white; }");
+    nbColors->setStyleSheet("QLabel { background-color : transparent; color : white; }");
+
+    start->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+    cancel->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+
+    connect(cancel,SIGNAL(clicked()),parent,SLOT(cancel()));
     connect(start,SIGNAL(clicked()),this,SLOT(reemitOptions()));
 
     boxWidth->addWidget(width);

@@ -13,6 +13,9 @@ namespace oli{
  */
 class FloodException : public std::exception{
 private:
+    /*!
+     * \brief msg
+     */
     std::string msg;
 
 public:
