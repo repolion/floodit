@@ -1,0 +1,242 @@
+\hypertarget{classoli_1_1_square}{}\section{oli\+:\+:Square Class Reference}
+\label{classoli_1_1_square}\index{oli\+::\+Square@{oli\+::\+Square}}
+
+
+{\ttfamily \#include $<$square.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_square_acc031fb00b69ad310d63985481b60ba6}{Square} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_square}{Square} \hyperlink{classoli_1_1_square}{Square}\textquotesingle{}s default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_square_a178d27c0b19d746f052355048847645d}{Square} (\hyperlink{classoli_1_1_position}{Position} position, int nb\+Col)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_square}{Square} square\textquotesingle{}s constructor with parameters. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_square_a8d8dbadb3451a21672e4485b75638776}{Square} (\hyperlink{classoli_1_1_position}{Position} position, \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} color)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_square}{Square}. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_square_ae3a146c140b1c641391cb0a2f3319719}{$\sim$\+Square} ()
+\item 
+void \hyperlink{classoli_1_1_square_afd04e5d1eaa2e2f2eaab0be32f2d965f}{set\+Color} (\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} color)
+\begin{DoxyCompactList}\small\item\em set\+Color to set the square\textquotesingle{}s color \end{DoxyCompactList}\item 
+\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} \hyperlink{classoli_1_1_square_a7709b35684fb5754e53d138bb916880c}{get\+Color} ()
+\begin{DoxyCompactList}\small\item\em get\+Color \end{DoxyCompactList}\item 
+Q\+Color \hyperlink{classoli_1_1_square_aff2077d95454b98d160c587f13eb10e7}{get\+Q\+Color} ()
+\begin{DoxyCompactList}\small\item\em get\+Q\+Color \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_square_a1c2449cd8855586cd63d6bde60873ce5}{set\+Captured} ()
+\begin{DoxyCompactList}\small\item\em set\+Captured set if the square is captured or not \end{DoxyCompactList}\item 
+bool \hyperlink{classoli_1_1_square_aa8ed3521a370df288e9085222660d7ea}{get\+Captured} ()
+\begin{DoxyCompactList}\small\item\em get\+Captured \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 13 of file square.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_square_acc031fb00b69ad310d63985481b60ba6}{}\label{classoli_1_1_square_acc031fb00b69ad310d63985481b60ba6} 
+\index{oli\+::\+Square@{oli\+::\+Square}!Square@{Square}}
+\index{Square@{Square}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{Square()}{Square()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily oli\+::\+Square\+::\+Square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_square}{Square} \hyperlink{classoli_1_1_square}{Square}\textquotesingle{}s default constructor. 
+
+
+
+Definition at line 5 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+5               \{
+6 
+7 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_square_a178d27c0b19d746f052355048847645d}{}\label{classoli_1_1_square_a178d27c0b19d746f052355048847645d} 
+\index{oli\+::\+Square@{oli\+::\+Square}!Square@{Square}}
+\index{Square@{Square}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{Square()}{Square()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily oli\+::\+Square\+::\+Square (\begin{DoxyParamCaption}\item[{\hyperlink{classoli_1_1_position}{Position}}]{position,  }\item[{int}]{nb\+Col }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_square}{Square} square\textquotesingle{}s constructor with parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of the square \\
+\hline
+{\em nb\+Col} & the square\textquotesingle{}s color \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+8                                           \{
+9     \_position = position;
+10         \textcolor{keywordtype}{int} randomNumber = (random(0,nbCol));
+11     \_color = \textcolor{keyword}{static\_cast<}\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}\textcolor{keyword}{>}(randomNumber);
+12     \_captured = \textcolor{keyword}{false};
+13 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_square_a8d8dbadb3451a21672e4485b75638776}{}\label{classoli_1_1_square_a8d8dbadb3451a21672e4485b75638776} 
+\index{oli\+::\+Square@{oli\+::\+Square}!Square@{Square}}
+\index{Square@{Square}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{Square()}{Square()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily oli\+::\+Square\+::\+Square (\begin{DoxyParamCaption}\item[{\hyperlink{classoli_1_1_position}{Position}}]{position,  }\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{color }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_square}{Square}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & \\
+\hline
+{\em color} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 15 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+15                                            \{
+16     \_position = position;
+17     \_color = color;
+18 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_square_ae3a146c140b1c641391cb0a2f3319719}{}\label{classoli_1_1_square_ae3a146c140b1c641391cb0a2f3319719} 
+\index{oli\+::\+Square@{oli\+::\+Square}!````~Square@{$\sim$\+Square}}
+\index{````~Square@{$\sim$\+Square}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{$\sim$\+Square()}{~Square()}}
+{\footnotesize\ttfamily oli\+::\+Square\+::$\sim$\+Square (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+21 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_square_aa8ed3521a370df288e9085222660d7ea}{}\label{classoli_1_1_square_aa8ed3521a370df288e9085222660d7ea} 
+\index{oli\+::\+Square@{oli\+::\+Square}!get\+Captured@{get\+Captured}}
+\index{get\+Captured@{get\+Captured}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{get\+Captured()}{getCaptured()}}
+{\footnotesize\ttfamily bool oli\+::\+Square\+::get\+Captured (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Captured 
+
+\begin{DoxyReturn}{Returns}
+if the square is captured or not 
+\end{DoxyReturn}
+
+
+Definition at line 34 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+34                         \{
+35     \textcolor{keywordflow}{return} \_captured;
+36 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_square_a7709b35684fb5754e53d138bb916880c}{}\label{classoli_1_1_square_a7709b35684fb5754e53d138bb916880c} 
+\index{oli\+::\+Square@{oli\+::\+Square}!get\+Color@{get\+Color}}
+\index{get\+Color@{get\+Color}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{get\+Color()}{getColor()}}
+{\footnotesize\ttfamily \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} oli\+::\+Square\+::get\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Color 
+
+\begin{DoxyReturn}{Returns}
+the \hyperlink{classoli_1_1_square}{Square}\textquotesingle{}s color 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+27                       \{
+28     \textcolor{keywordflow}{return} \_color;
+29 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_square_aff2077d95454b98d160c587f13eb10e7}{}\label{classoli_1_1_square_aff2077d95454b98d160c587f13eb10e7} 
+\index{oli\+::\+Square@{oli\+::\+Square}!get\+Q\+Color@{get\+Q\+Color}}
+\index{get\+Q\+Color@{get\+Q\+Color}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{get\+Q\+Color()}{getQColor()}}
+{\footnotesize\ttfamily Q\+Color oli\+::\+Square\+::get\+Q\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Q\+Color 
+
+\begin{DoxyReturn}{Returns}
+the square\textquotesingle{}s Qcolor 
+\end{DoxyReturn}
+\hypertarget{classoli_1_1_square_a1c2449cd8855586cd63d6bde60873ce5}{}\label{classoli_1_1_square_a1c2449cd8855586cd63d6bde60873ce5} 
+\index{oli\+::\+Square@{oli\+::\+Square}!set\+Captured@{set\+Captured}}
+\index{set\+Captured@{set\+Captured}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{set\+Captured()}{setCaptured()}}
+{\footnotesize\ttfamily void oli\+::\+Square\+::set\+Captured (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+set\+Captured set if the square is captured or not 
+
+
+
+Definition at line 31 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+31                         \{
+32     \_captured = \textcolor{keyword}{true};
+33 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_square_afd04e5d1eaa2e2f2eaab0be32f2d965f}{}\label{classoli_1_1_square_afd04e5d1eaa2e2f2eaab0be32f2d965f} 
+\index{oli\+::\+Square@{oli\+::\+Square}!set\+Color@{set\+Color}}
+\index{set\+Color@{set\+Color}!oli\+::\+Square@{oli\+::\+Square}}
+\subsubsection{\texorpdfstring{set\+Color()}{setColor()}}
+{\footnotesize\ttfamily void oli\+::\+Square\+::set\+Color (\begin{DoxyParamCaption}\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{color }\end{DoxyParamCaption})}
+
+
+
+set\+Color to set the square\textquotesingle{}s color 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & the color to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file square.\+cpp.
+
+
+\begin{DoxyCode}
+23                                 \{
+24     \_color = color;
+25 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/\hyperlink{square_8h}{square.\+h}\item 
+model/\hyperlink{square_8cpp}{square.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,269 @@
+\hypertarget{classoli_1_1_high_score}{}\section{oli\+:\+:High\+Score Class Reference}
+\label{classoli_1_1_high_score}\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+
+
+The \hyperlink{classoli_1_1_high_score}{High\+Score} class Used to compare old results and the new score according to the weight, the height and the number of colors function.  
+
+
+
+
+{\ttfamily \#include $<$High\+Score.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_high_score_a0d912d7674165be2873897b1d62ccccf}{High\+Score} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_high_score}{High\+Score}. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_high_score_ac59979c25b9bb0d937f883dcb66a6db5}{High\+Score} (int, int, int, int)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_high_score}{High\+Score} highscore\textquotesingle{}s constructor with parameters. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_high_score_aa7566dd6d1287aa5c9a248248bf61b59}{High\+Score} (int, int, int)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_high_score}{High\+Score} highscore\textquotesingle{}s constructor with parameters. \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_high_score_a161063aa9576b92bf4d1f64af7a7850c}{set\+Width} (int)
+\begin{DoxyCompactList}\small\item\em set\+Width to set the width \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_high_score_aa3e83b28bf2f086cc19f2049d508fe03}{set\+Height} (int)
+\begin{DoxyCompactList}\small\item\em set\+Height to set the height \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_high_score_a2a8626c74ae1c37f49bd4334600f493c}{set\+Best} (int)
+\begin{DoxyCompactList}\small\item\em set\+Best to set the best score \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_high_score_a1f4db3a9679c923b21530a91d17d40fa}{set\+Nb\+Colors} (int)
+\begin{DoxyCompactList}\small\item\em set\+Nb\+Colors \end{DoxyCompactList}\item 
+Q\+String \hyperlink{classoli_1_1_high_score_ae0c11fdb5f35199aa785d6e66bfe8d03}{get\+Id} () const
+\begin{DoxyCompactList}\small\item\em get\+Id \end{DoxyCompactList}\item 
+int \hyperlink{classoli_1_1_high_score_a22d70136ee71bd13be26e30a423e0e7f}{get\+Best} () const
+\begin{DoxyCompactList}\small\item\em get\+Best \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_high_score_a644fb39e171f4176159168fed4b31753}{write} (Q\+Json\+Object \&json) const
+\begin{DoxyCompactList}\small\item\em write write into a Json object the id of a highscore and the score associated \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_high_score}{High\+Score} class Used to compare old results and the new score according to the weight, the height and the number of colors function. 
+
+Definition at line 15 of file High\+Score.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_high_score_a0d912d7674165be2873897b1d62ccccf}{}\label{classoli_1_1_high_score_a0d912d7674165be2873897b1d62ccccf} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!High\+Score@{High\+Score}}
+\index{High\+Score@{High\+Score}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{High\+Score()}{HighScore()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily oli\+::\+High\+Score\+::\+High\+Score (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_high_score}{High\+Score}. 
+
+
+
+Definition at line 5 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+5 \{\}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_ac59979c25b9bb0d937f883dcb66a6db5}{}\label{classoli_1_1_high_score_ac59979c25b9bb0d937f883dcb66a6db5} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!High\+Score@{High\+Score}}
+\index{High\+Score@{High\+Score}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{High\+Score()}{HighScore()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily oli\+::\+High\+Score\+::\+High\+Score (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{best,  }\item[{int}]{nb\+Colors }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_high_score}{High\+Score} highscore\textquotesingle{}s constructor with parameters. 
+
+
+
+Definition at line 11 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+11                                                               \{
+12     \_width = width;
+13     \_height = height;
+14     \_nbColors = nbColors;
+15     \_best = best; 
+16 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_aa7566dd6d1287aa5c9a248248bf61b59}{}\label{classoli_1_1_high_score_aa7566dd6d1287aa5c9a248248bf61b59} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!High\+Score@{High\+Score}}
+\index{High\+Score@{High\+Score}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{High\+Score()}{HighScore()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily oli\+::\+High\+Score\+::\+High\+Score (\begin{DoxyParamCaption}\item[{int}]{width,  }\item[{int}]{height,  }\item[{int}]{nb\+Colors }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_high_score}{High\+Score} highscore\textquotesingle{}s constructor with parameters. 
+
+
+
+Definition at line 6 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+6                                                      \{
+7     \_width = width;
+8     \_height = height;
+9     \_nbColors = nbColors;
+10 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_high_score_a22d70136ee71bd13be26e30a423e0e7f}{}\label{classoli_1_1_high_score_a22d70136ee71bd13be26e30a423e0e7f} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!get\+Best@{get\+Best}}
+\index{get\+Best@{get\+Best}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{get\+Best()}{getBest()}}
+{\footnotesize\ttfamily int oli\+::\+High\+Score\+::get\+Best (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Best 
+
+\begin{DoxyReturn}{Returns}
+the best score 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+48                             \{
+49     \textcolor{keywordflow}{return} \_best;
+50 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_ae0c11fdb5f35199aa785d6e66bfe8d03}{}\label{classoli_1_1_high_score_ae0c11fdb5f35199aa785d6e66bfe8d03} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!get\+Id@{get\+Id}}
+\index{get\+Id@{get\+Id}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{get\+Id()}{getId()}}
+{\footnotesize\ttfamily Q\+String oli\+::\+High\+Score\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+get\+Id 
+
+\begin{DoxyReturn}{Returns}
+the id which defines the game record according to the weight, the height and the number of colors 
+\end{DoxyReturn}
+
+
+Definition at line 44 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+44                               \{
+45    \textcolor{keywordflow}{return} format(\_width) + format(\_height) + format(\_nbColors);
+46 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_a2a8626c74ae1c37f49bd4334600f493c}{}\label{classoli_1_1_high_score_a2a8626c74ae1c37f49bd4334600f493c} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!set\+Best@{set\+Best}}
+\index{set\+Best@{set\+Best}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{set\+Best()}{setBest()}}
+{\footnotesize\ttfamily void oli\+::\+High\+Score\+::set\+Best (\begin{DoxyParamCaption}\item[{int}]{best }\end{DoxyParamCaption})}
+
+
+
+set\+Best to set the best score 
+
+
+
+Definition at line 23 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+23                                \{
+24     \_best = best;
+25 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_aa3e83b28bf2f086cc19f2049d508fe03}{}\label{classoli_1_1_high_score_aa3e83b28bf2f086cc19f2049d508fe03} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!set\+Height@{set\+Height}}
+\index{set\+Height@{set\+Height}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{set\+Height()}{setHeight()}}
+{\footnotesize\ttfamily void oli\+::\+High\+Score\+::set\+Height (\begin{DoxyParamCaption}\item[{int}]{height }\end{DoxyParamCaption})}
+
+
+
+set\+Height to set the height 
+
+
+
+Definition at line 20 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+20                                    \{
+21     \_height = height;
+22 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_a1f4db3a9679c923b21530a91d17d40fa}{}\label{classoli_1_1_high_score_a1f4db3a9679c923b21530a91d17d40fa} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!set\+Nb\+Colors@{set\+Nb\+Colors}}
+\index{set\+Nb\+Colors@{set\+Nb\+Colors}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{set\+Nb\+Colors()}{setNbColors()}}
+{\footnotesize\ttfamily void oli\+::\+High\+Score\+::set\+Nb\+Colors (\begin{DoxyParamCaption}\item[{int}]{nb\+Colors }\end{DoxyParamCaption})}
+
+
+
+set\+Nb\+Colors 
+
+
+
+Definition at line 26 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+26                                        \{
+27     \_nbColors = nbColors;
+28 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_a161063aa9576b92bf4d1f64af7a7850c}{}\label{classoli_1_1_high_score_a161063aa9576b92bf4d1f64af7a7850c} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!set\+Width@{set\+Width}}
+\index{set\+Width@{set\+Width}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{set\+Width()}{setWidth()}}
+{\footnotesize\ttfamily void oli\+::\+High\+Score\+::set\+Width (\begin{DoxyParamCaption}\item[{int}]{width }\end{DoxyParamCaption})}
+
+
+
+set\+Width to set the width 
+
+
+
+Definition at line 17 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+17                                  \{
+18     \_width = width;
+19 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_high_score_a644fb39e171f4176159168fed4b31753}{}\label{classoli_1_1_high_score_a644fb39e171f4176159168fed4b31753} 
+\index{oli\+::\+High\+Score@{oli\+::\+High\+Score}!write@{write}}
+\index{write@{write}!oli\+::\+High\+Score@{oli\+::\+High\+Score}}
+\subsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void oli\+::\+High\+Score\+::write (\begin{DoxyParamCaption}\item[{Q\+Json\+Object \&}]{json }\end{DoxyParamCaption}) const}
+
+
+
+write write into a Json object the id of a highscore and the score associated 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 30 of file High\+Score.\+cpp.
+
+
+\begin{DoxyCode}
+30                                             \{
+31     QString id;
+32     \textcolor{keywordtype}{id} = format(\_width) + format(\_height) + format(\_nbColors);
+33     json[id] = \_best;
+34 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/\hyperlink{_high_score_8h}{High\+Score.\+h}\item 
+model/\hyperlink{_high_score_8cpp}{High\+Score.\+cpp}\end{DoxyCompactItemize}

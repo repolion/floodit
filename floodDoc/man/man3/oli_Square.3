@@ -1,0 +1,207 @@
+.TH "oli::Square" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::Square \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <square\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSquare\fP ()"
+.br
+.RI "\fBSquare\fP \fBSquare\fP's default constructor\&. "
+.ti -1c
+.RI "\fBSquare\fP (\fBPosition\fP position, int nbCol)"
+.br
+.RI "\fBSquare\fP square's constructor with parameters\&. "
+.ti -1c
+.RI "\fBSquare\fP (\fBPosition\fP position, \fBColor\fP color)"
+.br
+.RI "\fBSquare\fP\&. "
+.ti -1c
+.RI "\fB~Square\fP ()"
+.br
+.ti -1c
+.RI "void \fBsetColor\fP (\fBColor\fP color)"
+.br
+.RI "setColor to set the square's color "
+.ti -1c
+.RI "\fBColor\fP \fBgetColor\fP ()"
+.br
+.RI "getColor "
+.ti -1c
+.RI "QColor \fBgetQColor\fP ()"
+.br
+.RI "getQColor "
+.ti -1c
+.RI "void \fBsetCaptured\fP ()"
+.br
+.RI "setCaptured set if the square is captured or not "
+.ti -1c
+.RI "bool \fBgetCaptured\fP ()"
+.br
+.RI "getCaptured "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 13 of file square\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::Square::Square ()"
+
+.PP
+\fBSquare\fP \fBSquare\fP's default constructor\&. 
+.PP
+Definition at line 5 of file square\&.cpp\&.
+.PP
+.nf
+5               {
+6 
+7 }
+.fi
+.SS "oli::Square::Square (\fBPosition\fP position, int nbCol)"
+
+.PP
+\fBSquare\fP square's constructor with parameters\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIposition\fP the position of the square 
+.br
+\fInbCol\fP the square's color 
+.RE
+.PP
+
+.PP
+Definition at line 8 of file square\&.cpp\&.
+.PP
+.nf
+8                                           {
+9     _position = position;
+10         int randomNumber = (random(0,nbCol));
+11     _color = static_cast<Color>(randomNumber);
+12     _captured = false;
+13 }
+.fi
+.SS "oli::Square::Square (\fBPosition\fP position, \fBColor\fP color)"
+
+.PP
+\fBSquare\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIposition\fP 
+.br
+\fIcolor\fP 
+.RE
+.PP
+
+.PP
+Definition at line 15 of file square\&.cpp\&.
+.PP
+.nf
+15                                            {
+16     _position = position;
+17     _color = color;
+18 }
+.fi
+.SS "oli::Square::~Square ()"
+
+.PP
+Definition at line 21 of file square\&.cpp\&.
+.PP
+.nf
+21 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "bool oli::Square::getCaptured ()"
+
+.PP
+getCaptured 
+.PP
+\fBReturns:\fP
+.RS 4
+if the square is captured or not 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file square\&.cpp\&.
+.PP
+.nf
+34                         {
+35     return _captured;
+36 }
+.fi
+.SS "\fBColor\fP oli::Square::getColor ()"
+
+.PP
+getColor 
+.PP
+\fBReturns:\fP
+.RS 4
+the \fBSquare\fP's color 
+.RE
+.PP
+
+.PP
+Definition at line 27 of file square\&.cpp\&.
+.PP
+.nf
+27                       {
+28     return _color;
+29 }
+.fi
+.SS "QColor oli::Square::getQColor ()"
+
+.PP
+getQColor 
+.PP
+\fBReturns:\fP
+.RS 4
+the square's Qcolor 
+.RE
+.PP
+
+.SS "void oli::Square::setCaptured ()"
+
+.PP
+setCaptured set if the square is captured or not 
+.PP
+Definition at line 31 of file square\&.cpp\&.
+.PP
+.nf
+31                         {
+32     _captured = true;
+33 }
+.fi
+.SS "void oli::Square::setColor (\fBColor\fP color)"
+
+.PP
+setColor to set the square's color 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcolor\fP the color to set 
+.RE
+.PP
+
+.PP
+Definition at line 23 of file square\&.cpp\&.
+.PP
+.nf
+23                                 {
+24     _color = color;
+25 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

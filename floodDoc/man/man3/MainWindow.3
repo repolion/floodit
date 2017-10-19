@@ -1,0 +1,176 @@
+.TH "MainWindow" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MainWindow \- The \fBMainWindow\fP class The application's controller This class manage the different view of the application and the has the game object\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <mainwindow\&.h>\fP
+.PP
+Inherits QMainWindow\&.
+.SS "Public Slots"
+
+.in +1c
+.ti -1c
+.RI "void \fBdelScores\fP ()"
+.br
+.ti -1c
+.RI "void \fBresetOrNot\fP ()"
+.br
+.ti -1c
+.RI "void \fBcancel\fP ()"
+.br
+.ti -1c
+.RI "void \fBquickGame\fP ()"
+.br
+.ti -1c
+.RI "void \fBnewGame\fP ()"
+.br
+.ti -1c
+.RI "void \fBnewGame\fP (int height, int width, int nbCol)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMainWindow\fP (QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~MainWindow\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBMainWindow\fP class The application's controller This class manage the different view of the application and the has the game object\&. 
+.PP
+Definition at line 23 of file mainwindow\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MainWindow::MainWindow (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 4 of file mainwindow\&.cpp\&.
+.PP
+.nf
+4                                       :
+5     QMainWindow(parent),
+6     ui(new Ui::MainWindow)
+7 {
+8     ui->setupUi(this);
+9 
+10     _myStack = new QStackedWidget(this);
+11     _intro = new Intro(this);
+12     _menuStart = new MenuStart(this);
+13     _options = new Options(this);
+14     _reset = new Reset(this);
+15     _myStack->addWidget(_intro);
+16     _myStack->addWidget(_menuStart);
+17     _myStack->addWidget(_options);
+18     _myStack->addWidget(_reset);
+19 
+20     this->setCentralWidget(_myStack);
+21     _myStack->setCurrentIndex(0);
+22 
+23     QTimer::singleShot(4000, [=](){
+24         _myStack->setCurrentIndex(1);
+25         setBackground(":/images/choice\&.jpg");
+26     });
+27 
+28 }
+.fi
+.SS "MainWindow::~MainWindow ()"
+
+.PP
+Definition at line 30 of file mainwindow\&.cpp\&.
+.PP
+.nf
+30                        {
+31     delete ui;
+32 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void MainWindow::cancel ()\fC [slot]\fP"
+
+.PP
+Definition at line 54 of file mainwindow\&.cpp\&.
+.PP
+.nf
+54                        {
+55     _myStack->setCurrentIndex(1);
+56     setBackground(":/images/choice\&.jpg");
+57 }
+.fi
+.SS "void MainWindow::delScores ()\fC [slot]\fP"
+
+.PP
+Definition at line 72 of file mainwindow\&.cpp\&.
+.PP
+.nf
+72                           {
+73     _myStack->setCurrentIndex(1);
+74     setBackground(":/images/choice\&.jpg");
+75     if( remove( "save\&.json" ) != 0 )
+76         perror( "Error deleting file" );
+77       else
+78         puts( "File successfully deleted" );
+79 }
+.fi
+.SS "void MainWindow::newGame ()\fC [slot]\fP"
+
+.PP
+Definition at line 41 of file mainwindow\&.cpp\&.
+.PP
+.nf
+41                         {
+42     _myStack->setCurrentIndex(2);
+43     setBackground(":/images/options\&.jpg");
+44 }
+.fi
+.SS "void MainWindow::newGame (int height, int width, int nbCol)\fC [slot]\fP"
+
+.PP
+Definition at line 46 of file mainwindow\&.cpp\&.
+.PP
+.nf
+46                                                       {
+47 
+48     _wg = new WidgetGame(height,width,nbCol,this);
+49     _myStack->insertWidget(4,_wg);
+50     _myStack->setCurrentIndex(4);
+51     setBackground(":/images/bluedark\&.jpg");
+52 }
+.fi
+.SS "void MainWindow::quickGame ()\fC [slot]\fP"
+
+.PP
+Definition at line 34 of file mainwindow\&.cpp\&.
+.PP
+.nf
+34                           {
+35     _wg = new WidgetGame(15,15,4,this);
+36     _myStack->insertWidget(4,_wg);
+37     _myStack->setCurrentIndex(4);
+38     setBackground(":/images/bluedark\&.jpg");
+39 }
+.fi
+.SS "void MainWindow::resetOrNot ()\fC [slot]\fP"
+
+.PP
+Definition at line 67 of file mainwindow\&.cpp\&.
+.PP
+.nf
+67                            {
+68     _myStack->setCurrentIndex(3);
+69     setBackground(":/images/reset\&.jpg");
+70 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

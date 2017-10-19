@@ -1,0 +1,223 @@
+\hypertarget{class_main_window}{}\section{Main\+Window Class Reference}
+\label{class_main_window}\index{Main\+Window@{Main\+Window}}
+
+
+The \hyperlink{class_main_window}{Main\+Window} class The application\textquotesingle{}s controller This class manage the different view of the application and the has the game object.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\+h$>$}
+
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\subsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_main_window_aa760493201dbba331f4447e7b9d7b766}{del\+Scores} ()
+\item 
+void \hyperlink{class_main_window_a114eef08f156b273538f61c85a3db72f}{reset\+Or\+Not} ()
+\item 
+void \hyperlink{class_main_window_a04ae3dc178f46ea61ece2b9b209317b8}{cancel} ()
+\item 
+void \hyperlink{class_main_window_ab1584e555ed5ad91453f18ea51d0351e}{quick\+Game} ()
+\item 
+void \hyperlink{class_main_window_a36838285112f056c6e8135573918f224}{new\+Game} ()
+\item 
+void \hyperlink{class_main_window_ae0366468fcf40ee5e65a5239ab530e96}{new\+Game} (int height, int width, int nb\+Col)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{Main\+Window} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{$\sim$\+Main\+Window} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_main_window}{Main\+Window} class The application\textquotesingle{}s controller This class manage the different view of the application and the has the game object. 
+
+Definition at line 23 of file mainwindow.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db} 
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\index{Main\+Window@{Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{Main\+Window()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 4 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+4                                       :
+5     QMainWindow(parent),
+6     ui(\textcolor{keyword}{new} Ui::MainWindow)
+7 \{
+8     ui->setupUi(\textcolor{keyword}{this});
+9 
+10     \_myStack = \textcolor{keyword}{new} QStackedWidget(\textcolor{keyword}{this});
+11     \_intro = \textcolor{keyword}{new} \hyperlink{class_intro}{Intro}(\textcolor{keyword}{this});
+12     \_menuStart = \textcolor{keyword}{new} \hyperlink{class_menu_start}{MenuStart}(\textcolor{keyword}{this});
+13     \_options = \textcolor{keyword}{new} \hyperlink{class_options}{Options}(\textcolor{keyword}{this});
+14     \_reset = \textcolor{keyword}{new} \hyperlink{class_reset}{Reset}(\textcolor{keyword}{this});
+15     \_myStack->addWidget(\_intro);
+16     \_myStack->addWidget(\_menuStart);
+17     \_myStack->addWidget(\_options);
+18     \_myStack->addWidget(\_reset);
+19 
+20     this->setCentralWidget(\_myStack);
+21     \_myStack->setCurrentIndex(0);
+22 
+23     QTimer::singleShot(4000, [=]()\{
+24         \_myStack->setCurrentIndex(1);
+25         setBackground(\textcolor{stringliteral}{":/images/choice.jpg"});
+26     \});
+27 
+28 \}
+\end{DoxyCode}
+\hypertarget{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7}{}\label{class_main_window_ae98d00a93bc118200eeef9f9bba1dba7} 
+\index{Main\+Window@{Main\+Window}!````~Main\+Window@{$\sim$\+Main\+Window}}
+\index{````~Main\+Window@{$\sim$\+Main\+Window}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{$\sim$\+Main\+Window()}{~MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::$\sim$\+Main\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 30 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+30                        \{
+31     \textcolor{keyword}{delete} ui;
+32 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_main_window_a04ae3dc178f46ea61ece2b9b209317b8}{}\label{class_main_window_a04ae3dc178f46ea61ece2b9b209317b8} 
+\index{Main\+Window@{Main\+Window}!cancel@{cancel}}
+\index{cancel@{cancel}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{cancel}{cancel}}
+{\footnotesize\ttfamily void Main\+Window\+::cancel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 54 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+54                        \{
+55     \_myStack->setCurrentIndex(1);
+56     setBackground(\textcolor{stringliteral}{":/images/choice.jpg"});
+57 \}
+\end{DoxyCode}
+\hypertarget{class_main_window_aa760493201dbba331f4447e7b9d7b766}{}\label{class_main_window_aa760493201dbba331f4447e7b9d7b766} 
+\index{Main\+Window@{Main\+Window}!del\+Scores@{del\+Scores}}
+\index{del\+Scores@{del\+Scores}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{del\+Scores}{delScores}}
+{\footnotesize\ttfamily void Main\+Window\+::del\+Scores (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 72 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+72                           \{
+73     \_myStack->setCurrentIndex(1);
+74     setBackground(\textcolor{stringliteral}{":/images/choice.jpg"});
+75     \textcolor{keywordflow}{if}( \textcolor{keyword}{remove}( \textcolor{stringliteral}{"save.json"} ) != 0 )
+76         perror( \textcolor{stringliteral}{"Error deleting file"} );
+77       \textcolor{keywordflow}{else}
+78         puts( \textcolor{stringliteral}{"File successfully deleted"} );
+79 \}
+\end{DoxyCode}
+\hypertarget{class_main_window_a36838285112f056c6e8135573918f224}{}\label{class_main_window_a36838285112f056c6e8135573918f224} 
+\index{Main\+Window@{Main\+Window}!new\+Game@{new\+Game}}
+\index{new\+Game@{new\+Game}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{new\+Game}{newGame}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Main\+Window\+::new\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 41 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+41                         \{
+42     \_myStack->setCurrentIndex(2);
+43     setBackground(\textcolor{stringliteral}{":/images/options.jpg"});
+44 \}
+\end{DoxyCode}
+\hypertarget{class_main_window_ae0366468fcf40ee5e65a5239ab530e96}{}\label{class_main_window_ae0366468fcf40ee5e65a5239ab530e96} 
+\index{Main\+Window@{Main\+Window}!new\+Game@{new\+Game}}
+\index{new\+Game@{new\+Game}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{new\+Game}{newGame}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Main\+Window\+::new\+Game (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{int}]{nb\+Col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 46 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+46                                                       \{
+47 
+48     \_wg = \textcolor{keyword}{new} \hyperlink{class_widget_game}{WidgetGame}(height,width,nbCol,\textcolor{keyword}{this});
+49     \_myStack->insertWidget(4,\_wg);
+50     \_myStack->setCurrentIndex(4);
+51     setBackground(\textcolor{stringliteral}{":/images/bluedark.jpg"});
+52 \}
+\end{DoxyCode}
+\hypertarget{class_main_window_ab1584e555ed5ad91453f18ea51d0351e}{}\label{class_main_window_ab1584e555ed5ad91453f18ea51d0351e} 
+\index{Main\+Window@{Main\+Window}!quick\+Game@{quick\+Game}}
+\index{quick\+Game@{quick\+Game}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{quick\+Game}{quickGame}}
+{\footnotesize\ttfamily void Main\+Window\+::quick\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 34 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+34                           \{
+35     \_wg = \textcolor{keyword}{new} \hyperlink{class_widget_game}{WidgetGame}(15,15,4,\textcolor{keyword}{this});
+36     \_myStack->insertWidget(4,\_wg);
+37     \_myStack->setCurrentIndex(4);
+38     setBackground(\textcolor{stringliteral}{":/images/bluedark.jpg"});
+39 \}
+\end{DoxyCode}
+\hypertarget{class_main_window_a114eef08f156b273538f61c85a3db72f}{}\label{class_main_window_a114eef08f156b273538f61c85a3db72f} 
+\index{Main\+Window@{Main\+Window}!reset\+Or\+Not@{reset\+Or\+Not}}
+\index{reset\+Or\+Not@{reset\+Or\+Not}!Main\+Window@{Main\+Window}}
+\subsubsection{\texorpdfstring{reset\+Or\+Not}{resetOrNot}}
+{\footnotesize\ttfamily void Main\+Window\+::reset\+Or\+Not (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line 67 of file mainwindow.\+cpp.
+
+
+\begin{DoxyCode}
+67                            \{
+68     \_myStack->setCurrentIndex(3);
+69     setBackground(\textcolor{stringliteral}{":/images/reset.jpg"});
+70 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+view/\hyperlink{mainwindow_8h}{mainwindow.\+h}\item 
+view/\hyperlink{mainwindow_8cpp}{mainwindow.\+cpp}\end{DoxyCompactItemize}

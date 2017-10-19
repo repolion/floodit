@@ -1,0 +1,125 @@
+.TH "Options" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Options \- The \fBOptions\fP class the class that make possible to change new game's options\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <options\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBoptions\fP (int height, int width, int nbCol)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBOptions\fP (QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~Options\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBOptions\fP class the class that make possible to change new game's options\&. 
+.PP
+Definition at line 18 of file options\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Options::Options (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 3 of file options\&.cpp\&.
+.PP
+.nf
+3                                 :
+4     QWidget(parent)
+5 {
+6     QVBoxLayout *boxAll = new QVBoxLayout();
+7     QHBoxLayout *boxSize = new QHBoxLayout();
+8     QHBoxLayout *boxWidth = new QHBoxLayout();
+9 
+10 
+11     QLabel *width = new QLabel("width");
+12 
+13     QHBoxLayout *boxHeight = new QHBoxLayout();
+14     QLabel *height = new QLabel("height");
+15     QHBoxLayout *boxColors = new QHBoxLayout();
+16     QLabel *nbColors = new QLabel("Number of colors");
+17     QPushButton *start = new QPushButton("Start");
+18     QPushButton *cancel = new QPushButton("Cancel");
+19 
+20     _spinWidth = new QSpinBox();
+21     _spinWidth->setRange(5,35);
+22     _spinWidth->setValue(10);
+23 
+24     _spinHeight = new QSpinBox();
+25     _spinHeight->setRange(5,35);
+26     _spinHeight->setValue(10);
+27 
+28     _spinColors = new QSpinBox();
+29     _spinColors->setRange(2,8);
+30     _spinColors->setValue(4);
+31 
+32     width->setStyleSheet("QLabel { background-color : transparent; color : white; }");
+33     height->setStyleSheet("QLabel { background-color : transparent; color : white; }");
+34     nbColors->setStyleSheet("QLabel { background-color : transparent; color : white; }");
+35 
+36     start->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+37     cancel->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+38 
+39     connect(cancel,SIGNAL(clicked()),parent,SLOT(cancel()));
+40     connect(start,SIGNAL(clicked()),this,SLOT(reemitOptions()));
+41 
+42     boxWidth->addWidget(width);
+43     boxWidth->addWidget(_spinWidth);
+44 
+45     boxWidth->addWidget(height);
+46     boxWidth->addWidget(_spinHeight);
+47 
+48     boxSize->addLayout(boxWidth);
+49     boxSize->addLayout(boxHeight);
+50 
+51     boxColors->addWidget(nbColors);
+52     boxColors->addWidget(_spinColors);
+53 
+54     boxAll->addLayout(boxSize);
+55     boxAll->addLayout(boxColors);
+56     boxAll->addWidget(start);
+57     boxAll->addWidget(cancel);
+58 
+59     boxAll->setAlignment(start,Qt::AlignCenter);
+60     boxAll->setAlignment(cancel,Qt::AlignCenter);
+61     boxAll->setAlignment(Qt::AlignCenter);
+62     boxAll->setMargin(240);
+63 
+64     setLayout(boxAll);
+65 
+66     connect(this,(SIGNAL(options(int,int,int))),parent,SLOT(newGame(int,int,int)));
+67 }
+.fi
+.SS "Options::~Options ()"
+
+.PP
+Definition at line 69 of file options\&.cpp\&.
+.PP
+.nf
+69 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void Options::options (int height, int width, int nbCol)\fC [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

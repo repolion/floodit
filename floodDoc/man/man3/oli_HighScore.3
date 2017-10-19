@@ -1,0 +1,215 @@
+.TH "oli::HighScore" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::HighScore \- The \fBHighScore\fP class Used to compare old results and the new score according to the weight, the height and the number of colors function\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <HighScore\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBHighScore\fP ()"
+.br
+.RI "\fBHighScore\fP\&. "
+.ti -1c
+.RI "\fBHighScore\fP (int, int, int, int)"
+.br
+.RI "\fBHighScore\fP highscore's constructor with parameters\&. "
+.ti -1c
+.RI "\fBHighScore\fP (int, int, int)"
+.br
+.RI "\fBHighScore\fP highscore's constructor with parameters\&. "
+.ti -1c
+.RI "void \fBsetWidth\fP (int)"
+.br
+.RI "setWidth to set the width "
+.ti -1c
+.RI "void \fBsetHeight\fP (int)"
+.br
+.RI "setHeight to set the height "
+.ti -1c
+.RI "void \fBsetBest\fP (int)"
+.br
+.RI "setBest to set the best score "
+.ti -1c
+.RI "void \fBsetNbColors\fP (int)"
+.br
+.RI "setNbColors "
+.ti -1c
+.RI "QString \fBgetId\fP () const"
+.br
+.RI "getId "
+.ti -1c
+.RI "int \fBgetBest\fP () const"
+.br
+.RI "getBest "
+.ti -1c
+.RI "void \fBwrite\fP (QJsonObject &json) const"
+.br
+.RI "write write into a Json object the id of a highscore and the score associated "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBHighScore\fP class Used to compare old results and the new score according to the weight, the height and the number of colors function\&. 
+.PP
+Definition at line 15 of file HighScore\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::HighScore::HighScore ()"
+
+.PP
+\fBHighScore\fP\&. 
+.PP
+Definition at line 5 of file HighScore\&.cpp\&.
+.PP
+.nf
+5 {}
+.fi
+.SS "oli::HighScore::HighScore (int width, int height, int best, int nbColors)"
+
+.PP
+\fBHighScore\fP highscore's constructor with parameters\&. 
+.PP
+Definition at line 11 of file HighScore\&.cpp\&.
+.PP
+.nf
+11                                                               {
+12     _width = width;
+13     _height = height;
+14     _nbColors = nbColors;
+15     _best = best; 
+16 }
+.fi
+.SS "oli::HighScore::HighScore (int width, int height, int nbColors)"
+
+.PP
+\fBHighScore\fP highscore's constructor with parameters\&. 
+.PP
+Definition at line 6 of file HighScore\&.cpp\&.
+.PP
+.nf
+6                                                      {
+7     _width = width;
+8     _height = height;
+9     _nbColors = nbColors;
+10 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "int oli::HighScore::getBest () const"
+
+.PP
+getBest 
+.PP
+\fBReturns:\fP
+.RS 4
+the best score 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file HighScore\&.cpp\&.
+.PP
+.nf
+48                             {
+49     return _best;
+50 }
+.fi
+.SS "QString oli::HighScore::getId () const"
+
+.PP
+getId 
+.PP
+\fBReturns:\fP
+.RS 4
+the id which defines the game record according to the weight, the height and the number of colors 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file HighScore\&.cpp\&.
+.PP
+.nf
+44                               {
+45    return format(_width) + format(_height) + format(_nbColors);
+46 }
+.fi
+.SS "void oli::HighScore::setBest (int best)"
+
+.PP
+setBest to set the best score 
+.PP
+Definition at line 23 of file HighScore\&.cpp\&.
+.PP
+.nf
+23                                {
+24     _best = best;
+25 }
+.fi
+.SS "void oli::HighScore::setHeight (int height)"
+
+.PP
+setHeight to set the height 
+.PP
+Definition at line 20 of file HighScore\&.cpp\&.
+.PP
+.nf
+20                                    {
+21     _height = height;
+22 }
+.fi
+.SS "void oli::HighScore::setNbColors (int nbColors)"
+
+.PP
+setNbColors 
+.PP
+Definition at line 26 of file HighScore\&.cpp\&.
+.PP
+.nf
+26                                        {
+27     _nbColors = nbColors;
+28 }
+.fi
+.SS "void oli::HighScore::setWidth (int width)"
+
+.PP
+setWidth to set the width 
+.PP
+Definition at line 17 of file HighScore\&.cpp\&.
+.PP
+.nf
+17                                  {
+18     _width = width;
+19 }
+.fi
+.SS "void oli::HighScore::write (QJsonObject & json) const"
+
+.PP
+write write into a Json object the id of a highscore and the score associated 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjson\fP 
+.RE
+.PP
+
+.PP
+Definition at line 30 of file HighScore\&.cpp\&.
+.PP
+.nf
+30                                             {
+31     QString id;
+32     id = format(_width) + format(_height) + format(_nbColors);
+33     json[id] = _best;
+34 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

@@ -1,0 +1,215 @@
+\hypertarget{classoli_1_1_board}{}\section{oli\+:\+:Board Class Reference}
+\label{classoli_1_1_board}\index{oli\+::\+Board@{oli\+::\+Board}}
+
+
+The \hyperlink{classoli_1_1_board}{Board} class.  
+
+
+
+
+{\ttfamily \#include $<$board.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_board_a20734da03f3278f4160713deee5ea08e}{Board} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_board}{Board} the default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_board_af768f5fed76ddda7696e73657ad0fadf}{$\sim$\+Board} ()
+\item 
+\hyperlink{classoli_1_1_board_a59f9bae0c95aa7a3ff1761db02437143}{Board} (int x, int y, int nb\+Col)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_board}{Board} getters height. \end{DoxyCompactList}\item 
+int \hyperlink{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d}{get\+Width} ()
+\item 
+int \hyperlink{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace}{get\+Height} ()
+\begin{DoxyCompactList}\small\item\em get\+Height getters width \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_square}{Square} \& \hyperlink{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{get\+Square} (int x, int y)
+\begin{DoxyCompactList}\small\item\em get\+Square \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_board_a8c5091c12a29718d580db501f09592c8}{change\+Color\+Board} (int x, int y, \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} color)
+\begin{DoxyCompactList}\small\item\em change\+Color\+Board to change the color of a certain square on the board \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_board}{Board} class. 
+
+Definition at line 12 of file board.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_board_a20734da03f3278f4160713deee5ea08e}{}\label{classoli_1_1_board_a20734da03f3278f4160713deee5ea08e} 
+\index{oli\+::\+Board@{oli\+::\+Board}!Board@{Board}}
+\index{Board@{Board}!oli\+::\+Board@{oli\+::\+Board}}
+\subsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily oli\+::\+Board\+::\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_board}{Board} the default constructor. 
+
+
+
+Definition at line 6 of file board.\+cpp.
+
+
+\begin{DoxyCode}
+6 \{\}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_board_af768f5fed76ddda7696e73657ad0fadf}{}\label{classoli_1_1_board_af768f5fed76ddda7696e73657ad0fadf} 
+\index{oli\+::\+Board@{oli\+::\+Board}!````~Board@{$\sim$\+Board}}
+\index{````~Board@{$\sim$\+Board}!oli\+::\+Board@{oli\+::\+Board}}
+\subsubsection{\texorpdfstring{$\sim$\+Board()}{~Board()}}
+{\footnotesize\ttfamily oli\+::\+Board\+::$\sim$\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 27 of file board.\+cpp.
+
+
+\begin{DoxyCode}
+27 \{\}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_board_a59f9bae0c95aa7a3ff1761db02437143}{}\label{classoli_1_1_board_a59f9bae0c95aa7a3ff1761db02437143} 
+\index{oli\+::\+Board@{oli\+::\+Board}!Board@{Board}}
+\index{Board@{Board}!oli\+::\+Board@{oli\+::\+Board}}
+\subsubsection{\texorpdfstring{Board()}{Board()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily oli\+::\+Board\+::\+Board (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{int}]{nb\+Col }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_board}{Board} getters height. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the board\textquotesingle{}s width \\
+\hline
+{\em y} & the board\textquotesingle{}s height \\
+\hline
+{\em nb\+Col} & the number of color possible for the squares \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 8 of file board.\+cpp.
+
+
+\begin{DoxyCode}
+8                                            \{
+9     \_width = width;
+10     \_height = height ;
+11     \textcolor{keywordflow}{if}(\_width<5 || \_width>35||\_height<5 || \_height>35)\{
+12           \textcolor{keywordflow}{throw} FloodException \{\textcolor{stringliteral}{"Size invalid for the board, min 5 and max 35."}\};
+13     \}
+14 
+15     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y=0; y<\_height; y++)\{
+16         \_squares.resize(height,std::vector<Square>(width));
+17     \}
+18 
+19 
+20     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} y = 0; y<\_height; y++)\{
+21         \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} x = 0; x<\_width; x++)\{
+22             \_squares[y][x]=Square(Position(x,y),nbCol);
+23         \}
+24     \}
+25     \_squares[0][0].setCaptured();
+26 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_board_a8c5091c12a29718d580db501f09592c8}{}\label{classoli_1_1_board_a8c5091c12a29718d580db501f09592c8} 
+\index{oli\+::\+Board@{oli\+::\+Board}!change\+Color\+Board@{change\+Color\+Board}}
+\index{change\+Color\+Board@{change\+Color\+Board}!oli\+::\+Board@{oli\+::\+Board}}
+\subsubsection{\texorpdfstring{change\+Color\+Board()}{changeColorBoard()}}
+{\footnotesize\ttfamily void oli\+::\+Board\+::change\+Color\+Board (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{color }\end{DoxyParamCaption})}
+
+
+
+change\+Color\+Board to change the color of a certain square on the board 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & position on x axis \\
+\hline
+{\em y} & position on y axis \\
+\hline
+{\em color} & the new color \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 41 of file board.\+cpp.
+
+
+\begin{DoxyCode}
+41                                                    \{
+42     \_squares[x][y].setColor(color);
+43 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace}{}\label{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace} 
+\index{oli\+::\+Board@{oli\+::\+Board}!get\+Height@{get\+Height}}
+\index{get\+Height@{get\+Height}!oli\+::\+Board@{oli\+::\+Board}}
+\subsubsection{\texorpdfstring{get\+Height()}{getHeight()}}
+{\footnotesize\ttfamily int oli\+::\+Board\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Height getters width 
+
+\begin{DoxyReturn}{Returns}
+the board\textquotesingle{}s width 
+\end{DoxyReturn}
+
+
+Definition at line 33 of file board.\+cpp.
+
+
+\begin{DoxyCode}
+33                     \{
+34     \textcolor{keywordflow}{return} \_height;
+35 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{}\label{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453} 
+\index{oli\+::\+Board@{oli\+::\+Board}!get\+Square@{get\+Square}}
+\index{get\+Square@{get\+Square}!oli\+::\+Board@{oli\+::\+Board}}
+\subsubsection{\texorpdfstring{get\+Square()}{getSquare()}}
+{\footnotesize\ttfamily \hyperlink{classoli_1_1_square}{Square} \& oli\+::\+Board\+::get\+Square (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+get\+Square 
+
+\begin{DoxyReturn}{Returns}
+the board\textquotesingle{}s height 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file board.\+cpp.
+
+
+\begin{DoxyCode}
+37                                    \{
+38     \textcolor{keywordflow}{return} \_squares[x][y];
+39 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d}{}\label{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d} 
+\index{oli\+::\+Board@{oli\+::\+Board}!get\+Width@{get\+Width}}
+\index{get\+Width@{get\+Width}!oli\+::\+Board@{oli\+::\+Board}}
+\subsubsection{\texorpdfstring{get\+Width()}{getWidth()}}
+{\footnotesize\ttfamily int oli\+::\+Board\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 29 of file board.\+cpp.
+
+
+\begin{DoxyCode}
+29                    \{
+30     \textcolor{keywordflow}{return} \_width;
+31 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/\hyperlink{board_8h}{board.\+h}\item 
+model/\hyperlink{board_8cpp}{board.\+cpp}\end{DoxyCompactItemize}

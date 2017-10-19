@@ -1,0 +1,69 @@
+.TH "oli::ButtonWidget" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::ButtonWidget \- The \fBButtonWidget\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <buttonwidget\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBclicked\fP (const QString &text)"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBButtonWidget\fP (int nbCol, QWidget *parent=0)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBButtonWidget\fP class\&. 
+.PP
+Definition at line 17 of file buttonwidget\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::ButtonWidget::ButtonWidget (int nbCol, QWidget * parent = \fC0\fP)"
+
+.PP
+Definition at line 5 of file buttonwidget\&.cpp\&.
+.PP
+.nf
+6     : QWidget(parent)
+7 {
+8     signalMapper = new QSignalMapper(this);
+9     QGridLayout *gridLayout = new QGridLayout;
+10 
+11     for (int i = 1; i <= nbCol; ++i) {
+12 
+13         QPushButton *button = new QPushButton("");
+14         QColor col =ColorConvert::getQColor(static_cast<Color>(i-1));
+15         QString qss = QString("background-color: %1")\&.arg(col\&.name());
+16         button->setStyleSheet(qss);
+17         button->setFocusPolicy(Qt::NoFocus);
+18         connect(button, SIGNAL(clicked()), signalMapper, SLOT(map()));
+19         signalMapper->setMapping(button,i);
+20         gridLayout->addWidget(button, (i-1) / 8, (i-1) % 8);
+21     }
+22 
+23     connect(signalMapper, SIGNAL(mapped(int)),parent, SLOT(play(int)));
+24     setLayout(gridLayout);
+25 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void oli::ButtonWidget::clicked (const QString & text)\fC [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

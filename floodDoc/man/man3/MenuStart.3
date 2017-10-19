@@ -1,0 +1,75 @@
+.TH "MenuStart" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+MenuStart \- The \fBMenuStart\fP class To let the choice between a new game or a quickgame\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <menustart\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMenuStart\fP (QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~MenuStart\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBMenuStart\fP class To let the choice between a new game or a quickgame\&. 
+.PP
+Definition at line 16 of file menustart\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "MenuStart::MenuStart (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 3 of file menustart\&.cpp\&.
+.PP
+.nf
+3                                     :
+4     QWidget(parent)
+5 {
+6     QVBoxLayout *qvb = new QVBoxLayout();
+7     QPushButton *quick = new QPushButton("Quick Game");
+8     QPushButton *newGame = new QPushButton("New Game");
+9     QPushButton *reset = new QPushButton("Reset scores");
+10 
+11     connect(quick,SIGNAL(clicked()),parent,SLOT(quickGame()));
+12     connect(newGame,SIGNAL(clicked()),parent,SLOT(newGame()));
+13     connect(reset,SIGNAL(clicked()),parent,SLOT(resetOrNot()));
+14 
+15     quick->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+16     newGame->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+17     reset->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+18 
+19     qvb->addWidget(quick);
+20     qvb->addWidget(newGame);
+21     qvb->addWidget(reset);
+22     qvb->setMargin(250);
+23     qvb->setAlignment(quick,Qt::AlignCenter);
+24     qvb->setAlignment(newGame,Qt::AlignCenter);
+25     qvb->setAlignment(reset,Qt::AlignCenter);
+26     setLayout(qvb);
+27 }
+.fi
+.SS "MenuStart::~MenuStart ()"
+
+.PP
+Definition at line 29 of file menustart\&.cpp\&.
+.PP
+.nf
+29 {}
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

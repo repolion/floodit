@@ -1,0 +1,96 @@
+.TH "oli::Observable" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::Observable \- The \fBObservable\fP class Interface implemented by the classes that have to be observed\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <observable\&.h>\fP
+.PP
+Inherited by \fBoli::Floodgame\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBAddObs\fP (\fBObserver\fP *obs)"
+.br
+.ti -1c
+.RI "void \fBDelObs\fP (\fBObserver\fP *obs)"
+.br
+.ti -1c
+.RI "void \fBNotify\fP (void)"
+.br
+.ti -1c
+.RI "virtual \fB~Observable\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBObservable\fP class Interface implemented by the classes that have to be observed\&. 
+.PP
+Definition at line 12 of file observable\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::Observable::~Observable ()\fC [virtual]\fP"
+
+.PP
+Definition at line 17 of file observable\&.cpp\&.
+.PP
+.nf
+17                        {
+18     iterator itb=m_list\&.begin();
+19     const_iterator ite=m_list\&.end();
+20 
+21     for(;itb!=ite;++itb){
+22         (*itb)->DelObs(this);
+23     }
+24 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void oli::Observable::AddObs (\fBObserver\fP * obs)"
+
+.PP
+Definition at line 6 of file observable\&.cpp\&.
+.PP
+.nf
+6                                      {
+7     m_list\&.push_back(obs);
+8     obs->AddObs(this);
+9 }
+.fi
+.SS "void oli::Observable::DelObs (\fBObserver\fP * obs)"
+
+.PP
+Definition at line 11 of file observable\&.cpp\&.
+.PP
+.nf
+11                                     {
+12     iterator it= find(m_list\&.begin(),m_list\&.end(),obs);
+13     if(it != m_list\&.end())
+14         m_list\&.erase(it);
+15 }
+.fi
+.SS "void oli::Observable::Notify (void)"
+
+.PP
+Definition at line 26 of file observable\&.cpp\&.
+.PP
+.nf
+26                            {
+27     iterator itb=m_list\&.begin();
+28     const_iterator ite=m_list\&.end();
+29 
+30     for(;itb!=ite;++itb){
+31         (*itb)->Update();
+32     }
+33 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

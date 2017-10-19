@@ -1,0 +1,43 @@
+.TH "main.cpp" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+main.cpp \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'view/mainwindow\&.h'\fP
+.br
+\fC#include <QApplication>\fP
+.br
+\fC#include <QMessageBox>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBmain\fP (int argc, char *argv[])"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "int main (int argc, char * argv[])"
+
+.PP
+Definition at line 6 of file main\&.cpp\&.
+.PP
+.nf
+7 {
+8     QApplication a(argc, argv);
+9     MainWindow w;
+10     w\&.setFixedSize(720,660);
+11     w\&.setWindowTitle("Flood it by Olivier\&.C");
+12     w\&.show();
+13 
+14     return a\&.exec();
+15 }
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

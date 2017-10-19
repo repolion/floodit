@@ -1,0 +1,128 @@
+.TH "oli::Position" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::Position \- The \fBPosition\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <position\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPosition\fP ()"
+.br
+.RI "\fBPosition\fP's constructor without parameters\&. This constructor will set the _x attribute and Y to 0\&. "
+.ti -1c
+.RI "\fBPosition\fP (int x, int y)"
+.br
+.RI "\fBPosition\fP's constructor with 2 parameters\&. "
+.ti -1c
+.RI "\fB~Position\fP ()"
+.br
+.RI "\fBPosition\fP's destructor\&. "
+.ti -1c
+.RI "int \fBgetX\fP ()"
+.br
+.RI "getX "
+.ti -1c
+.RI "int \fBgetY\fP ()"
+.br
+.RI "getY "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBPosition\fP class\&. 
+
+This class will be used to determinate the Block's \fBPosition\fP in the board\&. \fB_x\fP The abscissa\&. \fB_y\fP The ordinate\&. 
+.PP
+Definition at line 13 of file position\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::Position::Position ()"
+
+.PP
+\fBPosition\fP's constructor without parameters\&. This constructor will set the _x attribute and Y to 0\&. 
+.PP
+Definition at line 6 of file position\&.cpp\&.
+.PP
+.nf
+6 :Position(0,0){}
+.fi
+.SS "oli::Position::Position (int x, int y)"
+
+.PP
+\fBPosition\fP's constructor with 2 parameters\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the value for horizontal axis\&. 
+.br
+\fIy\fP the value for vertical axis\&. 
+.RE
+.PP
+
+.PP
+Definition at line 9 of file position\&.cpp\&.
+.PP
+.nf
+9 :_x{x}, _y{y}{}
+.fi
+.SS "oli::Position::~Position ()"
+
+.PP
+\fBPosition\fP's destructor\&. 
+.PP
+Definition at line 12 of file position\&.cpp\&.
+.PP
+.nf
+12 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "int oli::Position::getX ()"
+
+.PP
+getX 
+.PP
+\fBReturns:\fP
+.RS 4
+The value of _x\&. 
+.RE
+.PP
+
+.PP
+Definition at line 16 of file position\&.cpp\&.
+.PP
+.nf
+16                   {
+17     return _x;
+18 }
+.fi
+.SS "int oli::Position::getY ()"
+
+.PP
+getY 
+.PP
+\fBReturns:\fP
+.RS 4
+The value of _y\&. 
+.RE
+.PP
+
+.PP
+Definition at line 20 of file position\&.cpp\&.
+.PP
+.nf
+20                   {
+21     return _y;
+22 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

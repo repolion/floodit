@@ -1,0 +1,77 @@
+\hypertarget{classoli_1_1_color_convert}{}\section{oli\+:\+:Color\+Convert Class Reference}
+\label{classoli_1_1_color_convert}\index{oli\+::\+Color\+Convert@{oli\+::\+Color\+Convert}}
+
+
+The \hyperlink{classoli_1_1_color_convert}{Color\+Convert} class Class used by others class to convert a color to a Q\+Color.  
+
+
+
+
+{\ttfamily \#include $<$color\+Convert.\+h$>$}
+
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static Q\+Color \hyperlink{classoli_1_1_color_convert_a4c41280d24ad2cba4b2a46fbb03f2356}{get\+Q\+Color} (\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} col)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_color_convert}{Color\+Convert} class Class used by others class to convert a color to a Q\+Color. 
+
+Definition at line 11 of file color\+Convert.\+h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_color_convert_a4c41280d24ad2cba4b2a46fbb03f2356}{}\label{classoli_1_1_color_convert_a4c41280d24ad2cba4b2a46fbb03f2356} 
+\index{oli\+::\+Color\+Convert@{oli\+::\+Color\+Convert}!get\+Q\+Color@{get\+Q\+Color}}
+\index{get\+Q\+Color@{get\+Q\+Color}!oli\+::\+Color\+Convert@{oli\+::\+Color\+Convert}}
+\subsubsection{\texorpdfstring{get\+Q\+Color()}{getQColor()}}
+{\footnotesize\ttfamily static Q\+Color oli\+::\+Color\+Convert\+::get\+Q\+Color (\begin{DoxyParamCaption}\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Definition at line 14 of file color\+Convert.\+h.
+
+
+\begin{DoxyCode}
+14                                       \{
+15         QColor color;
+16         \textcolor{keywordflow}{switch}(col)\{
+17         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276ebaa2d9547b5d3dd9f05984475f7c926da0}{Color::RED}:
+18             color = Qt::red;
+19             \textcolor{keywordflow}{break};
+20         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eba9de0e5dd94e861317e74964bed179fa0}{Color::GREEN}:
+21             color = QColor(50,205, 50, 255);
+22             \textcolor{keywordflow}{break};
+23         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eba5b6490317b6f7270bc3ab5ffd07c1f52}{Color::ORANGE}:
+24             color = QColor(238, 154, 0, 255);
+25             \textcolor{keywordflow}{break};
+26         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eba1b3e1ee9bff86431dea6b181365ba65f}{Color::BLUE}:
+27             color = QColor(72, 118, 255, 255);
+28             \textcolor{keywordflow}{break};
+29         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276ebaec9c138095a352a9b7ef9ca5363b14d9}{Color::PURPLE}:
+30             color =  QColor(89, 51, 204, 255);
+31             \textcolor{keywordflow}{break};
+32         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eba90c86d1e3da733aaf155dcc24f2a235b}{Color::DEEPPINK}:
+33             color = QColor(255, 52, 179, 255);
+34             \textcolor{keywordflow}{break};
+35         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eba344dd8cd533280795b9db82ef0c92749}{Color::CYAN}:
+36             color = Qt::cyan;
+37             \textcolor{keywordflow}{break};
+38         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eba8a568e5f41b7e4da88fe5c4a00aad34e}{Color::YELLOW}:
+39             color = Qt::yellow;
+40             \textcolor{keywordflow}{break};
+41         \textcolor{keywordflow}{case} \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eba3c551f0d1a06b4f852d1832daed357bf}{Color::GREY}:
+42             color = QColor(204,204,204,255);
+43             \textcolor{keywordflow}{break};
+44         \}
+45         \textcolor{keywordflow}{return} color;
+46     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+view/\hyperlink{color_convert_8h}{color\+Convert.\+h}\end{DoxyCompactItemize}

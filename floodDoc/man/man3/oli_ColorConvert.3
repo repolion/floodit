@@ -1,0 +1,70 @@
+.TH "oli::ColorConvert" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::ColorConvert \- The \fBColorConvert\fP class Class used by others class to convert a color to a QColor\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <colorConvert\&.h>\fP
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static QColor \fBgetQColor\fP (\fBColor\fP col)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBColorConvert\fP class Class used by others class to convert a color to a QColor\&. 
+.PP
+Definition at line 11 of file colorConvert\&.h\&.
+.SH "Member Function Documentation"
+.PP 
+.SS "static QColor oli::ColorConvert::getQColor (\fBColor\fP col)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+Definition at line 14 of file colorConvert\&.h\&.
+.PP
+.nf
+14                                       {
+15         QColor color;
+16         switch(col){
+17         case Color::RED:
+18             color = Qt::red;
+19             break;
+20         case Color::GREEN:
+21             color = QColor(50,205, 50, 255);
+22             break;
+23         case Color::ORANGE:
+24             color = QColor(238, 154, 0, 255);
+25             break;
+26         case Color::BLUE:
+27             color = QColor(72, 118, 255, 255);
+28             break;
+29         case Color::PURPLE:
+30             color =  QColor(89, 51, 204, 255);
+31             break;
+32         case Color::DEEPPINK:
+33             color = QColor(255, 52, 179, 255);
+34             break;
+35         case Color::CYAN:
+36             color = Qt::cyan;
+37             break;
+38         case Color::YELLOW:
+39             color = Qt::yellow;
+40             break;
+41         case Color::GREY:
+42             color = QColor(204,204,204,255);
+43             break;
+44         }
+45         return color;
+46     }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

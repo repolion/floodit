@@ -1,0 +1,76 @@
+\hypertarget{class_intro}{}\section{Intro Class Reference}
+\label{class_intro}\index{Intro@{Intro}}
+
+
+The \hyperlink{class_intro}{Intro} class The class launched during a few seconds at the begining of the program launch.  
+
+
+
+
+{\ttfamily \#include $<$intro.\+h$>$}
+
+Inheritance diagram for Intro\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_intro}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_intro_a82415c2693757f51e4e93ccc8abd720e}{Intro} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{class_intro_a024067dadaf97daca3bfeb0f22e9c183}{$\sim$\+Intro} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_intro}{Intro} class The class launched during a few seconds at the begining of the program launch. 
+
+Definition at line 17 of file intro.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_intro_a82415c2693757f51e4e93ccc8abd720e}{}\label{class_intro_a82415c2693757f51e4e93ccc8abd720e} 
+\index{Intro@{Intro}!Intro@{Intro}}
+\index{Intro@{Intro}!Intro@{Intro}}
+\subsubsection{\texorpdfstring{Intro()}{Intro()}}
+{\footnotesize\ttfamily Intro\+::\+Intro (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 3 of file intro.\+cpp.
+
+
+\begin{DoxyCode}
+3                             :
+4     QWidget(parent)
+5 \{
+6     QPixmap bkgnd(\textcolor{stringliteral}{":/images/intro.jpg"});
+7     QPalette palette;
+8     palette.setBrush(QPalette::Background, bkgnd);
+9     parent->setPalette(palette);
+10     this->setFixedSize(720,660);
+11 \}
+\end{DoxyCode}
+\hypertarget{class_intro_a024067dadaf97daca3bfeb0f22e9c183}{}\label{class_intro_a024067dadaf97daca3bfeb0f22e9c183} 
+\index{Intro@{Intro}!````~Intro@{$\sim$\+Intro}}
+\index{````~Intro@{$\sim$\+Intro}!Intro@{Intro}}
+\subsubsection{\texorpdfstring{$\sim$\+Intro()}{~Intro()}}
+{\footnotesize\ttfamily Intro\+::$\sim$\+Intro (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 13 of file intro.\+cpp.
+
+
+\begin{DoxyCode}
+13 \{\}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+view/\hyperlink{intro_8h}{intro.\+h}\item 
+view/\hyperlink{intro_8cpp}{intro.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,69 @@
+.TH "WidgetGame" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+WidgetGame \- The \fBWidgetGame\fP class the widget containing the game's view\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <widgetGame\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBreemitMain\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWidgetGame\fP (int height, int width, int nbCol, QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~WidgetGame\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBWidgetGame\fP class the widget containing the game's view\&. 
+.PP
+Definition at line 16 of file widgetGame\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "WidgetGame::WidgetGame (int height, int width, int nbCol, QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 4 of file widgetGame\&.cpp\&.
+.PP
+.nf
+4                                                                      :
+5     QWidget(parent)
+6 {
+7     _game = new Floodgame(height,width,nbCol);
+8     _viewboard = ViewBoard(*this,_game,nbCol);
+9     _game->AddObs(&_viewboard);
+10 
+11     connect(this,SIGNAL(reemitMain()),parent,SLOT(cancel()));
+12 }
+.fi
+.SS "WidgetGame::~WidgetGame ()"
+
+.PP
+Definition at line 14 of file widgetGame\&.cpp\&.
+.PP
+.nf
+14 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void WidgetGame::reemitMain ()\fC [signal]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

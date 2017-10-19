@@ -1,0 +1,59 @@
+.TH "Intro" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Intro \- The \fBIntro\fP class The class launched during a few seconds at the begining of the program launch\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <intro\&.h>\fP
+.PP
+Inherits QWidget\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIntro\fP (QWidget *parent=0)"
+.br
+.ti -1c
+.RI "\fB~Intro\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBIntro\fP class The class launched during a few seconds at the begining of the program launch\&. 
+.PP
+Definition at line 17 of file intro\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Intro::Intro (QWidget * parent = \fC0\fP)\fC [explicit]\fP"
+
+.PP
+Definition at line 3 of file intro\&.cpp\&.
+.PP
+.nf
+3                             :
+4     QWidget(parent)
+5 {
+6     QPixmap bkgnd(":/images/intro\&.jpg");
+7     QPalette palette;
+8     palette\&.setBrush(QPalette::Background, bkgnd);
+9     parent->setPalette(palette);
+10     this->setFixedSize(720,660);
+11 }
+.fi
+.SS "Intro::~Intro ()"
+
+.PP
+Definition at line 13 of file intro\&.cpp\&.
+.PP
+.nf
+13 {}
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

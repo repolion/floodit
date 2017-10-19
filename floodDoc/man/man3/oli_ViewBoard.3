@@ -1,0 +1,183 @@
+.TH "oli::ViewBoard" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::ViewBoard \- The \fBViewBoard\fP class the class that create and refresh the game's board view\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <viewboard\&.h>\fP
+.PP
+Inherits \fBoli::Observer\fP\&.
+.SS "Signals"
+
+.in +1c
+.ti -1c
+.RI "void \fBtest\fP ()"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBViewBoard\fP ()"
+.br
+.ti -1c
+.RI "\fBViewBoard\fP (QWidget &fenetre, \fBFloodgame\fP *game, int nbCol)"
+.br
+.ti -1c
+.RI "void \fBsetDisplay\fP ()"
+.br
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.in -1c
+.SS "Additional Inherited Members"
+.SH "Detailed Description"
+.PP 
+The \fBViewBoard\fP class the class that create and refresh the game's board view\&. 
+.PP
+Definition at line 19 of file viewboard\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::ViewBoard::ViewBoard ()"
+
+.PP
+Definition at line 5 of file viewboard\&.cpp\&.
+.PP
+.nf
+5 {}
+.fi
+.SS "oli::ViewBoard::ViewBoard (QWidget & fenetre, \fBFloodgame\fP * game, int nbCol)"
+
+.PP
+Definition at line 7 of file viewboard\&.cpp\&.
+.PP
+.nf
+7                                                                 {
+8 
+9     _game = game;
+10     _ql = new QLabel(&fenetre);
+11     _ql->setFixedHeight(525);
+12 
+13     _gameOver = new QLabel(&fenetre);
+14     _gameOver->setFixedHeight(525);
+15     _gameOver->setFixedWidth(720);
+16     _gameOver->setAlignment(Qt::AlignCenter);
+17 
+18     _buttonWidget = new ButtonWidget(nbCol,&fenetre);
+19     _vBox = new QVBoxLayout();
+20     _hboxBoutons = new QHBoxLayout;
+21     _record = new QLabel(&fenetre);
+22     _nbClickLabel = new QLabel(&fenetre);
+23 
+24     QPushButton *restart = new QPushButton("Restart");
+25     QPushButton *quit = new QPushButton("Quit");
+26 
+27     QObject::connect(quit,SIGNAL(clicked()),&fenetre,SLOT(reemit()));
+28     QObject::connect(restart,SIGNAL(clicked()),&fenetre,SLOT(restart()));
+29 
+30     quit->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+31     restart->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+32 
+33     _hboxBoutons->addWidget(restart);
+34     _hboxBoutons->addWidget(quit);
+35     _hboxBoutons->setAlignment(restart,Qt::AlignRight);
+36     _hboxBoutons->setAlignment(quit,Qt::AlignLeft);
+37 
+38     fenetre\&.setLayout(_vBox);
+39     setDisplay();
+40 
+41     _vBox->addWidget(_ql);
+42     _vBox->addWidget(_record);
+43     _vBox->addWidget(_nbClickLabel);
+44     _vBox->addWidget(_buttonWidget);
+45     _vBox->setAlignment(_buttonWidget,Qt::AlignHCenter);
+46 
+47     _vBox->addLayout(_hboxBoutons);
+48 
+49 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void oli::ViewBoard::setDisplay ()"
+
+.PP
+Definition at line 51 of file viewboard\&.cpp\&.
+.PP
+.nf
+51                           {
+52 
+53     if((_valueRecord =_game->getRecord())==0){
+54         _record->setText("");
+55     }else{
+56         _record->setText("Record: "+QVariant(_valueRecord)\&.toString()+" clicks");
+57         _record->setAlignment(Qt::AlignCenter);
+58         _record->setStyleSheet("QLabel { background-color : transparent; color : orange; }");
+59     }
+60 
+61     _nbClickLabel->setText("Clicked "+QVariant(_game->getNbClick())\&.toString() +" times");
+62     _nbClickLabel->setAlignment(Qt::AlignCenter);
+63     _nbClickLabel->setStyleSheet("QLabel { background-color : transparent; color : white; }");
+64 
+65     _width = _game->getBoard()\&.getWidth();
+66     _height = _game->getBoard()\&.getHeight();
+67 
+68     int brolWidth = _width;
+69     int brolHeight = _height;
+70     int block_width = 500 / [brolWidth, brolHeight](){
+71         int x;
+72         (brolWidth > brolHeight) ? x = brolWidth : x = brolHeight;
+73         return x;
+74     }();
+75     QPixmap _pixmap;
+76     if(!_game->isGameOver()){
+77         _pixmap= QPixmap(_width*block_width+1,_height*block_width+1);
+78     }
+79     else _pixmap = QPixmap(490,490);
+80     _pixmap\&.fill(QColor("blue"));
+81     if(!_game->isGameOver()){
+82         for(int i = 0; i < _height; i++){
+83             for (int j = 0; j < _width; j++){
+84                 QPainter painter(&_pixmap);
+85                 painter\&.setPen(QColor(81,81,81,255));
+86                 painter\&.setBrush(ColorConvert::getQColor(_game->getBoard()\&.getSquare(i,j)\&.getColor()));
+87                 QRect myQRect=(QRect(j*block_width,i*block_width,block_width,block_width));
+88                 painter\&.drawRect(myQRect);
+89             }
+90         }
+91     }
+92     if(_game->isGameOver() && _game->isNewRecord()){
+93         _gameOver->setPixmap(QPixmap(":/images/highScore\&.png")\&.scaled(QSize(300,300),  Qt::KeepAspectRatio));
+94     }
+95     else if(_game->isGameOver()){
+96         _gameOver->setPixmap(QPixmap(":/images/gameOver2\&.png")\&.scaled(QSize(300,300),  Qt::KeepAspectRatio));
+97     }
+98     else _gameOver->setPixmap(QPixmap(""));
+99     _ql->setAlignment(Qt::AlignCenter);
+100 
+101     _ql->setPixmap(_pixmap);
+102 
+103 }
+.fi
+.SS "void oli::ViewBoard::test ()\fC [signal]\fP"
+
+.SS "void oli::ViewBoard::Update ()\fC [virtual]\fP"
+
+.PP
+Implements \fBoli::Observer\fP\&.
+.PP
+Definition at line 105 of file viewboard\&.cpp\&.
+.PP
+.nf
+105                       {
+106     setDisplay();
+107 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

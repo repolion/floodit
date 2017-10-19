@@ -1,0 +1,152 @@
+\hypertarget{classoli_1_1_position}{}\section{oli\+:\+:Position Class Reference}
+\label{classoli_1_1_position}\index{oli\+::\+Position@{oli\+::\+Position}}
+
+
+The \hyperlink{classoli_1_1_position}{Position} class.  
+
+
+
+
+{\ttfamily \#include $<$position.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_position_ade4913282bb68eb3d5a95dd504ad374c}{Position} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_position}{Position}\textquotesingle{}s constructor without parameters. This constructor will set the \+\_\+x attribute and Y to 0. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_position_afcbdd002ad9be728dbfe4daecd745621}{Position} (int x, int y)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_position}{Position}\textquotesingle{}s constructor with 2 parameters. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_position_a30cbb2de832fec8a5619d600131a3aee}{$\sim$\+Position} ()
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_position}{Position}\textquotesingle{}s destructor. \end{DoxyCompactList}\item 
+int \hyperlink{classoli_1_1_position_afe4474780d03f71339d059b7742ad6e8}{getX} ()
+\begin{DoxyCompactList}\small\item\em getX \end{DoxyCompactList}\item 
+int \hyperlink{classoli_1_1_position_a7c203441f6429fcbd5bf014576219c18}{getY} ()
+\begin{DoxyCompactList}\small\item\em getY \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_position}{Position} class. 
+
+This class will be used to determinate the Block\textquotesingle{}s \hyperlink{classoli_1_1_position}{Position} in the board. \+\_\+x The abscissa. \+\_\+y The ordinate. 
+
+Definition at line 13 of file position.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_position_ade4913282bb68eb3d5a95dd504ad374c}{}\label{classoli_1_1_position_ade4913282bb68eb3d5a95dd504ad374c} 
+\index{oli\+::\+Position@{oli\+::\+Position}!Position@{Position}}
+\index{Position@{Position}!oli\+::\+Position@{oli\+::\+Position}}
+\subsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily oli\+::\+Position\+::\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_position}{Position}\textquotesingle{}s constructor without parameters. This constructor will set the \+\_\+x attribute and Y to 0. 
+
+
+
+Definition at line 6 of file position.\+cpp.
+
+
+\begin{DoxyCode}
+6 :\hyperlink{classoli_1_1_position_ade4913282bb68eb3d5a95dd504ad374c}{Position}(0,0)\{\}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_position_afcbdd002ad9be728dbfe4daecd745621}{}\label{classoli_1_1_position_afcbdd002ad9be728dbfe4daecd745621} 
+\index{oli\+::\+Position@{oli\+::\+Position}!Position@{Position}}
+\index{Position@{Position}!oli\+::\+Position@{oli\+::\+Position}}
+\subsubsection{\texorpdfstring{Position()}{Position()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily oli\+::\+Position\+::\+Position (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_position}{Position}\textquotesingle{}s constructor with 2 parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the value for horizontal axis. \\
+\hline
+{\em y} & the value for vertical axis. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file position.\+cpp.
+
+
+\begin{DoxyCode}
+9 :\_x\{x\}, \_y\{y\}\{\}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_position_a30cbb2de832fec8a5619d600131a3aee}{}\label{classoli_1_1_position_a30cbb2de832fec8a5619d600131a3aee} 
+\index{oli\+::\+Position@{oli\+::\+Position}!````~Position@{$\sim$\+Position}}
+\index{````~Position@{$\sim$\+Position}!oli\+::\+Position@{oli\+::\+Position}}
+\subsubsection{\texorpdfstring{$\sim$\+Position()}{~Position()}}
+{\footnotesize\ttfamily oli\+::\+Position\+::$\sim$\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_position}{Position}\textquotesingle{}s destructor. 
+
+
+
+Definition at line 12 of file position.\+cpp.
+
+
+\begin{DoxyCode}
+12 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_position_afe4474780d03f71339d059b7742ad6e8}{}\label{classoli_1_1_position_afe4474780d03f71339d059b7742ad6e8} 
+\index{oli\+::\+Position@{oli\+::\+Position}!getX@{getX}}
+\index{getX@{getX}!oli\+::\+Position@{oli\+::\+Position}}
+\subsubsection{\texorpdfstring{get\+X()}{getX()}}
+{\footnotesize\ttfamily int oli\+::\+Position\+::getX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getX 
+
+\begin{DoxyReturn}{Returns}
+The value of \+\_\+x. 
+\end{DoxyReturn}
+
+
+Definition at line 16 of file position.\+cpp.
+
+
+\begin{DoxyCode}
+16                   \{
+17     \textcolor{keywordflow}{return} \_x;
+18 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_position_a7c203441f6429fcbd5bf014576219c18}{}\label{classoli_1_1_position_a7c203441f6429fcbd5bf014576219c18} 
+\index{oli\+::\+Position@{oli\+::\+Position}!getY@{getY}}
+\index{getY@{getY}!oli\+::\+Position@{oli\+::\+Position}}
+\subsubsection{\texorpdfstring{get\+Y()}{getY()}}
+{\footnotesize\ttfamily int oli\+::\+Position\+::getY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getY 
+
+\begin{DoxyReturn}{Returns}
+The value of \+\_\+y. 
+\end{DoxyReturn}
+
+
+Definition at line 20 of file position.\+cpp.
+
+
+\begin{DoxyCode}
+20                   \{
+21     \textcolor{keywordflow}{return} \_y;
+22 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/\hyperlink{position_8h}{position.\+h}\item 
+model/\hyperlink{position_8cpp}{position.\+cpp}\end{DoxyCompactItemize}

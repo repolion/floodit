@@ -1,0 +1,524 @@
+\hypertarget{classoli_1_1_floodgame}{}\section{oli\+:\+:Floodgame Class Reference}
+\label{classoli_1_1_floodgame}\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+
+
+{\ttfamily \#include $<$floodgame.\+h$>$}
+
+Inheritance diagram for oli\+:\+:Floodgame\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoli_1_1_floodgame}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_floodgame_ac411db6e80baa3e2a9c41d7ee71fd006}{Floodgame} (int height, int width, int nb\+Col)
+\begin{DoxyCompactList}\small\item\em \hyperlink{classoli_1_1_floodgame}{Floodgame} the game\textquotesingle{}s constructor with parameters. \end{DoxyCompactList}\item 
+\hyperlink{classoli_1_1_floodgame_a3e27addbd04a0eb2d27fbe05abf482f7}{$\sim$\+Floodgame} ()
+\item 
+\hyperlink{classoli_1_1_board}{Board} \& \hyperlink{classoli_1_1_floodgame_a4775f2321f034778d4de93a888d2283b}{get\+Board} ()
+\begin{DoxyCompactList}\small\item\em get\+Board \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_floodgame_a257b5c182fe3c40242308a6b234b75c8}{add\+Captured} (\hyperlink{classoli_1_1_position}{Position} position)
+\begin{DoxyCompactList}\small\item\em add\+Captured add a \hyperlink{classoli_1_1_position}{Position} to the list of position captured \end{DoxyCompactList}\item 
+int \hyperlink{classoli_1_1_floodgame_a6ffeda1d46639b093de8892b45e7bf06}{get\+Nb\+Colors} ()
+\begin{DoxyCompactList}\small\item\em get\+Nb\+Colors \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_floodgame_a2f1bf35c7c7077bccf8576324ccf60ed}{init} (int height, int width, int nb\+Col)
+\begin{DoxyCompactList}\small\item\em init to initialise a new game \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95}{flood\+Fill} (int x, int y, \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} new\+Color, \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} old\+Color, int cpt)
+\begin{DoxyCompactList}\small\item\em flood\+Fill The algorithm to check the board for new position to capture \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_floodgame_a371ea67d0f296c8cd3ba07e1d31cb7fe}{set\+New\+Color} (\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} color)
+\begin{DoxyCompactList}\small\item\em set\+New\+Color \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_floodgame_aa6be75fd33a3181117c80529561c1f0c}{change\+Current\+Color} (\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} color, int count)
+\begin{DoxyCompactList}\small\item\em change\+Current\+Color \end{DoxyCompactList}\item 
+bool \hyperlink{classoli_1_1_floodgame_a839915256ec11211fdbf95195c8e51cb}{get\+Is\+Game\+Over} ()
+\begin{DoxyCompactList}\small\item\em get\+Is\+Game\+Over to get the gameover status \end{DoxyCompactList}\item 
+void \hyperlink{classoli_1_1_floodgame_ad30fd6f491f98397de7eb46fcc96c875}{set\+Nb\+Click} ()
+\begin{DoxyCompactList}\small\item\em set\+Nb\+Click to set the number of click made \end{DoxyCompactList}\item 
+\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} \hyperlink{classoli_1_1_floodgame_ab302cc4ae3712da0de83520cb86d9567}{get\+Last\+Color} ()
+\begin{DoxyCompactList}\small\item\em get\+Last\+Color \end{DoxyCompactList}\item 
+bool \hyperlink{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5}{is\+Game\+Over} ()
+\begin{DoxyCompactList}\small\item\em is\+Game\+Over \end{DoxyCompactList}\item 
+bool \hyperlink{classoli_1_1_floodgame_a35b5e1c7f39c73d7d46b8c71156fbfbc}{is\+New\+Record} ()
+\begin{DoxyCompactList}\small\item\em is\+New\+Record \end{DoxyCompactList}\item 
+int \hyperlink{classoli_1_1_floodgame_aae08dd4e048b1521797c44a68d08f250}{get\+Nb\+Click} ()
+\begin{DoxyCompactList}\small\item\em get\+Nb\+Click \end{DoxyCompactList}\item 
+int \hyperlink{classoli_1_1_floodgame_af0084c4fecf2b51da6aed1f73de05e9e}{get\+Record} ()
+\begin{DoxyCompactList}\small\item\em get\+Record \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file floodgame.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_floodgame_ac411db6e80baa3e2a9c41d7ee71fd006}{}\label{classoli_1_1_floodgame_ac411db6e80baa3e2a9c41d7ee71fd006} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!Floodgame@{Floodgame}}
+\index{Floodgame@{Floodgame}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{Floodgame()}{Floodgame()}}
+{\footnotesize\ttfamily oli\+::\+Floodgame\+::\+Floodgame (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{int}]{nb\+Col }\end{DoxyParamCaption})}
+
+
+
+\hyperlink{classoli_1_1_floodgame}{Floodgame} the game\textquotesingle{}s constructor with parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & the board\textquotesingle{}s height \\
+\hline
+{\em width} & the board\textquotesingle{}s width \\
+\hline
+{\em nb\+Col} & the number of color possible for the squares \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 5 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+6 \{
+7     \textcolor{keywordflow}{try}
+8     \{
+9         \hyperlink{classoli_1_1_floodgame_a2f1bf35c7c7077bccf8576324ccf60ed}{init}(height,width,nbColors);
+10     \}
+11     \textcolor{keywordflow}{catch} (FloodException e)
+12     \{
+13         std::cerr << e.what();
+14         exit(0);
+15     \}
+16 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_a3e27addbd04a0eb2d27fbe05abf482f7}{}\label{classoli_1_1_floodgame_a3e27addbd04a0eb2d27fbe05abf482f7} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!````~Floodgame@{$\sim$\+Floodgame}}
+\index{````~Floodgame@{$\sim$\+Floodgame}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{$\sim$\+Floodgame()}{~Floodgame()}}
+{\footnotesize\ttfamily oli\+::\+Floodgame\+::$\sim$\+Floodgame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 44 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+44 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_floodgame_a257b5c182fe3c40242308a6b234b75c8}{}\label{classoli_1_1_floodgame_a257b5c182fe3c40242308a6b234b75c8} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!add\+Captured@{add\+Captured}}
+\index{add\+Captured@{add\+Captured}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{add\+Captured()}{addCaptured()}}
+{\footnotesize\ttfamily void oli\+::\+Floodgame\+::add\+Captured (\begin{DoxyParamCaption}\item[{\hyperlink{classoli_1_1_position}{Position}}]{position }\end{DoxyParamCaption})}
+
+
+
+add\+Captured add a \hyperlink{classoli_1_1_position}{Position} to the list of position captured 
+
+
+\begin{DoxyParams}{Parameters}
+{\em position} & the position of the new position captured \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 54 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+54                                             \{
+55     \_listCaptured.push\_back(position);
+56 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_aa6be75fd33a3181117c80529561c1f0c}{}\label{classoli_1_1_floodgame_aa6be75fd33a3181117c80529561c1f0c} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!change\+Current\+Color@{change\+Current\+Color}}
+\index{change\+Current\+Color@{change\+Current\+Color}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{change\+Current\+Color()}{changeCurrentColor()}}
+{\footnotesize\ttfamily void oli\+::\+Floodgame\+::change\+Current\+Color (\begin{DoxyParamCaption}\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{color,  }\item[{int}]{count }\end{DoxyParamCaption})}
+
+
+
+change\+Current\+Color 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & the new color to set \\
+\hline
+{\em count} & a counter initialised \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 58 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+58                                                      \{
+59     \hyperlink{classoli_1_1_floodgame_a371ea67d0f296c8cd3ba07e1d31cb7fe}{setNewColor}(color);
+60     \textcolor{keywordflow}{if} (color == \_lastColor && cpt!=0)\textcolor{keywordflow}{return};
+61     \textcolor{keywordflow}{for}(Position pos: \_listCaptured)\{
+62         \hyperlink{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95}{floodFill}(pos.getX(),pos.getY(),\_newColor,\_lastColor,cpt);
+63     \}
+64     \_isGameOver=\hyperlink{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5}{isGameOver}();
+65     \textcolor{keywordflow}{if}(\_isGameOver)\{
+66         \_highScore = HighScore(\_board.\hyperlink{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d}{getWidth}(),\_board.\hyperlink{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace}{getHeight}(),\_nbClick,\_nbColors);
+67         \textcolor{keywordflow}{if} (checkScores())\_newRecord=\textcolor{keyword}{true};
+68     \}
+69     \hyperlink{classoli_1_1_observable_ab1fe0a40f7aaa9d9acee97f8c08ec328}{Notify}();
+70 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95}{}\label{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!flood\+Fill@{flood\+Fill}}
+\index{flood\+Fill@{flood\+Fill}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{flood\+Fill()}{floodFill()}}
+{\footnotesize\ttfamily void oli\+::\+Floodgame\+::flood\+Fill (\begin{DoxyParamCaption}\item[{int}]{x,  }\item[{int}]{y,  }\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{new\+Color,  }\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{old\+Color,  }\item[{int}]{cpt }\end{DoxyParamCaption})}
+
+
+
+flood\+Fill The algorithm to check the board for new position to capture 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & the x axis position \\
+\hline
+{\em y} & the y axis position \\
+\hline
+{\em new\+Color} & the new color \\
+\hline
+{\em old\+Color} & the old color \\
+\hline
+{\em cpt} & a counter \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 72 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+72                                                                           \{
+73 
+74     \textcolor{keywordflow}{if}(x<0 || y<0 || x>=\_board.\hyperlink{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace}{getHeight}() || y>=\_board.\hyperlink{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d}{getWidth}())\textcolor{keywordflow}{return};
+75 
+76     \textcolor{keywordflow}{if}(cpt==0) \_board.\hyperlink{classoli_1_1_board_a8c5091c12a29718d580db501f09592c8}{changeColorBoard}(x,y,newColor);
+77     \textcolor{keywordflow}{else} \{
+78         \textcolor{keywordflow}{if}(\_board.\hyperlink{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{getSquare}(x,y).\hyperlink{classoli_1_1_square_a7709b35684fb5754e53d138bb916880c}{getColor}()==newColor)\{
+79             \textcolor{keywordflow}{if}(!\_board.\hyperlink{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{getSquare}(x,y).\hyperlink{classoli_1_1_square_aa8ed3521a370df288e9085222660d7ea}{getCaptured}())\{
+80                 \_board.\hyperlink{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{getSquare}(x,y).\hyperlink{classoli_1_1_square_a1c2449cd8855586cd63d6bde60873ce5}{setCaptured}();
+81                 \hyperlink{classoli_1_1_floodgame_a257b5c182fe3c40242308a6b234b75c8}{addCaptured}(Position(x,y));
+82             \}
+83         \}
+84     \}
+85 
+86     ++cpt;
+87     \textcolor{keywordflow}{if}(cpt==1)\{
+88         \hyperlink{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95}{floodFill}(x+1, y, newColor,oldColor,cpt);
+89         \hyperlink{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95}{floodFill}(x-1, y, newColor,oldColor,cpt);
+90         \hyperlink{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95}{floodFill}(x, y+1, newColor,oldColor,cpt);
+91         \hyperlink{classoli_1_1_floodgame_abf954b3e365ada491163de9ad956bd95}{floodFill}(x, y-1, newColor,oldColor,cpt);
+92     \}
+93 
+94 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_a4775f2321f034778d4de93a888d2283b}{}\label{classoli_1_1_floodgame_a4775f2321f034778d4de93a888d2283b} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!get\+Board@{get\+Board}}
+\index{get\+Board@{get\+Board}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{get\+Board()}{getBoard()}}
+{\footnotesize\ttfamily \hyperlink{classoli_1_1_board}{Board} \& oli\+::\+Floodgame\+::get\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Board 
+
+\begin{DoxyReturn}{Returns}
+the board 
+\end{DoxyReturn}
+
+
+Definition at line 46 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+46                           \{
+47     \textcolor{keywordflow}{return} \_board;
+48 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_a839915256ec11211fdbf95195c8e51cb}{}\label{classoli_1_1_floodgame_a839915256ec11211fdbf95195c8e51cb} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!get\+Is\+Game\+Over@{get\+Is\+Game\+Over}}
+\index{get\+Is\+Game\+Over@{get\+Is\+Game\+Over}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{get\+Is\+Game\+Over()}{getIsGameOver()}}
+{\footnotesize\ttfamily bool oli\+::\+Floodgame\+::get\+Is\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Is\+Game\+Over to get the gameover status 
+
+\begin{DoxyReturn}{Returns}
+if the game is over or not 
+\end{DoxyReturn}
+
+
+Definition at line 105 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+105                              \{
+106     \textcolor{keywordflow}{return} \_isGameOver;
+107 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_ab302cc4ae3712da0de83520cb86d9567}{}\label{classoli_1_1_floodgame_ab302cc4ae3712da0de83520cb86d9567} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!get\+Last\+Color@{get\+Last\+Color}}
+\index{get\+Last\+Color@{get\+Last\+Color}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{get\+Last\+Color()}{getLastColor()}}
+{\footnotesize\ttfamily \hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color} oli\+::\+Floodgame\+::get\+Last\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Last\+Color 
+
+\begin{DoxyReturn}{Returns}
+the last color choosed 
+\end{DoxyReturn}
+
+
+Definition at line 109 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+109                              \{
+110     \textcolor{keywordflow}{return} \_newColor;
+111 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_aae08dd4e048b1521797c44a68d08f250}{}\label{classoli_1_1_floodgame_aae08dd4e048b1521797c44a68d08f250} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!get\+Nb\+Click@{get\+Nb\+Click}}
+\index{get\+Nb\+Click@{get\+Nb\+Click}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{get\+Nb\+Click()}{getNbClick()}}
+{\footnotesize\ttfamily int oli\+::\+Floodgame\+::get\+Nb\+Click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Nb\+Click 
+
+\begin{DoxyReturn}{Returns}
+the number of click 
+\end{DoxyReturn}
+
+
+Definition at line 121 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+121                          \{
+122     \textcolor{keywordflow}{return} \_nbClick;
+123 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_a6ffeda1d46639b093de8892b45e7bf06}{}\label{classoli_1_1_floodgame_a6ffeda1d46639b093de8892b45e7bf06} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!get\+Nb\+Colors@{get\+Nb\+Colors}}
+\index{get\+Nb\+Colors@{get\+Nb\+Colors}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{get\+Nb\+Colors()}{getNbColors()}}
+{\footnotesize\ttfamily int oli\+::\+Floodgame\+::get\+Nb\+Colors (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Nb\+Colors 
+
+\begin{DoxyReturn}{Returns}
+the number of color possible for a square 
+\end{DoxyReturn}
+
+
+Definition at line 50 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+50                           \{
+51     \textcolor{keywordflow}{return} \_nbColors;
+52 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_af0084c4fecf2b51da6aed1f73de05e9e}{}\label{classoli_1_1_floodgame_af0084c4fecf2b51da6aed1f73de05e9e} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!get\+Record@{get\+Record}}
+\index{get\+Record@{get\+Record}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{get\+Record()}{getRecord()}}
+{\footnotesize\ttfamily int oli\+::\+Floodgame\+::get\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Record 
+
+\begin{DoxyReturn}{Returns}
+the record 
+\end{DoxyReturn}
+
+
+Definition at line 165 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+165                         \{
+166     QJsonObject gameObject;
+167     gameObject =loadSavedScores();
+168     QString \textcolor{keywordtype}{id} =\_highScore.\hyperlink{classoli_1_1_high_score_ae0c11fdb5f35199aa785d6e66bfe8d03}{getId}();
+169 
+170     \textcolor{keywordflow}{if}(gameObject.contains(\textcolor{keywordtype}{id}))\{
+171         \textcolor{keywordflow}{return} gameObject.value(\textcolor{keywordtype}{id}).toInt();
+172     \}
+173     \textcolor{keywordflow}{else}\{
+174         \textcolor{keywordflow}{return} 0;
+175     \}
+176 
+177 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_a2f1bf35c7c7077bccf8576324ccf60ed}{}\label{classoli_1_1_floodgame_a2f1bf35c7c7077bccf8576324ccf60ed} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!init@{init}}
+\index{init@{init}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void oli\+::\+Floodgame\+::init (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{int}]{nb\+Col }\end{DoxyParamCaption})}
+
+
+
+init to initialise a new game 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & the board\textquotesingle{}s height \\
+\hline
+{\em width} & the board\textquotesingle{}s width \\
+\hline
+{\em nb\+Col} & the number of different color possible for the squares \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 18 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+18                                                   \{
+19     \_nbClick = 0;
+20     \_isGameOver = \textcolor{keyword}{false};
+21     \_nbColors = nbCol;
+22     \_started = \textcolor{keyword}{true};
+23     \_isGameOver = \textcolor{keyword}{false};
+24     \textcolor{keywordflow}{try}
+25     \{
+26         \_board = Board(height,width,\_nbColors);
+27     \}
+28     \textcolor{keywordflow}{catch} (FloodException e)
+29     \{
+30         std::cerr << e.what();
+31         exit(0);
+32     \}
+33 
+34     \_listCaptured.clear();
+35     \_listCaptured.push\_back(Position(0,0));
+36     \_lastColor = \_board.\hyperlink{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{getSquare}(0,0).\hyperlink{classoli_1_1_square_a7709b35684fb5754e53d138bb916880c}{getColor}();
+37     \_newColor = \_board.\hyperlink{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{getSquare}(0,0).\hyperlink{classoli_1_1_square_a7709b35684fb5754e53d138bb916880c}{getColor}();
+38     this->\hyperlink{classoli_1_1_floodgame_aa6be75fd33a3181117c80529561c1f0c}{changeCurrentColor}(\_lastColor,0);
+39     \_highScore = HighScore(\_board.\hyperlink{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d}{getWidth}(),\_board.\hyperlink{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace}{getHeight}(),\_nbColors);
+40     \_newRecord = \textcolor{keyword}{false};
+41 
+42 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5}{}\label{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!is\+Game\+Over@{is\+Game\+Over}}
+\index{is\+Game\+Over@{is\+Game\+Over}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{is\+Game\+Over()}{isGameOver()}}
+{\footnotesize\ttfamily bool oli\+::\+Floodgame\+::is\+Game\+Over (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is\+Game\+Over 
+
+\begin{DoxyReturn}{Returns}
+if the game is over or not 
+\end{DoxyReturn}
+
+
+Definition at line 101 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+101                           \{
+102     \textcolor{keywordflow}{return} \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(\_listCaptured.size())==\_board.\hyperlink{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d}{getWidth}()*\_board.
+      \hyperlink{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace}{getHeight}();
+103 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_a35b5e1c7f39c73d7d46b8c71156fbfbc}{}\label{classoli_1_1_floodgame_a35b5e1c7f39c73d7d46b8c71156fbfbc} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!is\+New\+Record@{is\+New\+Record}}
+\index{is\+New\+Record@{is\+New\+Record}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{is\+New\+Record()}{isNewRecord()}}
+{\footnotesize\ttfamily bool oli\+::\+Floodgame\+::is\+New\+Record (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+is\+New\+Record 
+
+\begin{DoxyReturn}{Returns}
+if the actual score is a new record or not 
+\end{DoxyReturn}
+
+
+Definition at line 117 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+117                            \{
+118     \textcolor{keywordflow}{return} \_newRecord;
+119 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_ad30fd6f491f98397de7eb46fcc96c875}{}\label{classoli_1_1_floodgame_ad30fd6f491f98397de7eb46fcc96c875} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!set\+Nb\+Click@{set\+Nb\+Click}}
+\index{set\+Nb\+Click@{set\+Nb\+Click}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{set\+Nb\+Click()}{setNbClick()}}
+{\footnotesize\ttfamily void oli\+::\+Floodgame\+::set\+Nb\+Click (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+set\+Nb\+Click to set the number of click made 
+
+
+
+Definition at line 113 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+113                           \{
+114     ++\_nbClick;
+115 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_floodgame_a371ea67d0f296c8cd3ba07e1d31cb7fe}{}\label{classoli_1_1_floodgame_a371ea67d0f296c8cd3ba07e1d31cb7fe} 
+\index{oli\+::\+Floodgame@{oli\+::\+Floodgame}!set\+New\+Color@{set\+New\+Color}}
+\index{set\+New\+Color@{set\+New\+Color}!oli\+::\+Floodgame@{oli\+::\+Floodgame}}
+\subsubsection{\texorpdfstring{set\+New\+Color()}{setNewColor()}}
+{\footnotesize\ttfamily void oli\+::\+Floodgame\+::set\+New\+Color (\begin{DoxyParamCaption}\item[{\hyperlink{namespaceoli_aac44697e43b3ab2ad32fe892ab2276eb}{Color}}]{color }\end{DoxyParamCaption})}
+
+
+
+set\+New\+Color 
+
+
+\begin{DoxyParams}{Parameters}
+{\em color} & the new color to set \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 96 of file floodgame.\+cpp.
+
+
+\begin{DoxyCode}
+96                                       \{
+97     \_lastColor = \_newColor;
+98     \_newColor = color;
+99 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+model/\hyperlink{floodgame_8h}{floodgame.\+h}\item 
+model/\hyperlink{floodgame_8cpp}{floodgame.\+cpp}\end{DoxyCompactItemize}

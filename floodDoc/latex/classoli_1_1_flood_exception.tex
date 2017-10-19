@@ -1,0 +1,92 @@
+\hypertarget{classoli_1_1_flood_exception}{}\section{oli\+:\+:Flood\+Exception Class Reference}
+\label{classoli_1_1_flood_exception}\index{oli\+::\+Flood\+Exception@{oli\+::\+Flood\+Exception}}
+
+
+The \hyperlink{classoli_1_1_flood_exception}{Flood\+Exception} class This is the exception class used for the game .  
+
+
+
+
+{\ttfamily \#include $<$floodexception.\+h$>$}
+
+Inheritance diagram for oli\+:\+:Flood\+Exception\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoli_1_1_flood_exception}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_flood_exception_a98d7a32c0eef6440e94cae847fa0c4ba}{Flood\+Exception} (const char $\ast$Msg)
+\item 
+virtual \hyperlink{classoli_1_1_flood_exception_a7c5320db13b3e5c1082ab933a6dd0bd0}{$\sim$\+Flood\+Exception} ()  throw ()
+\item 
+const char $\ast$ \hyperlink{classoli_1_1_flood_exception_a03204c3d2890b5de6690df657b770f72}{what} () const  throw ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_flood_exception}{Flood\+Exception} class This is the exception class used for the game . 
+
+Definition at line 14 of file floodexception.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_flood_exception_a98d7a32c0eef6440e94cae847fa0c4ba}{}\label{classoli_1_1_flood_exception_a98d7a32c0eef6440e94cae847fa0c4ba} 
+\index{oli\+::\+Flood\+Exception@{oli\+::\+Flood\+Exception}!Flood\+Exception@{Flood\+Exception}}
+\index{Flood\+Exception@{Flood\+Exception}!oli\+::\+Flood\+Exception@{oli\+::\+Flood\+Exception}}
+\subsubsection{\texorpdfstring{Flood\+Exception()}{FloodException()}}
+{\footnotesize\ttfamily oli\+::\+Flood\+Exception\+::\+Flood\+Exception (\begin{DoxyParamCaption}\item[{const char $\ast$}]{Msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 22 of file floodexception.\+h.
+
+
+\begin{DoxyCode}
+22                                      \{
+23         std::ostringstream output;
+24         output << Msg;
+25         this->msg = output.str();
+26     \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_flood_exception_a7c5320db13b3e5c1082ab933a6dd0bd0}{}\label{classoli_1_1_flood_exception_a7c5320db13b3e5c1082ab933a6dd0bd0} 
+\index{oli\+::\+Flood\+Exception@{oli\+::\+Flood\+Exception}!````~Flood\+Exception@{$\sim$\+Flood\+Exception}}
+\index{````~Flood\+Exception@{$\sim$\+Flood\+Exception}!oli\+::\+Flood\+Exception@{oli\+::\+Flood\+Exception}}
+\subsubsection{\texorpdfstring{$\sim$\+Flood\+Exception()}{~FloodException()}}
+{\footnotesize\ttfamily virtual oli\+::\+Flood\+Exception\+::$\sim$\+Flood\+Exception (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throw  ) \hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Definition at line 28 of file floodexception.\+h.
+
+
+\begin{DoxyCode}
+28 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_flood_exception_a03204c3d2890b5de6690df657b770f72}{}\label{classoli_1_1_flood_exception_a03204c3d2890b5de6690df657b770f72} 
+\index{oli\+::\+Flood\+Exception@{oli\+::\+Flood\+Exception}!what@{what}}
+\index{what@{what}!oli\+::\+Flood\+Exception@{oli\+::\+Flood\+Exception}}
+\subsubsection{\texorpdfstring{what()}{what()}}
+{\footnotesize\ttfamily const char$\ast$ oli\+::\+Flood\+Exception\+::what (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const throw  ) \hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Definition at line 30 of file floodexception.\+h.
+
+
+\begin{DoxyCode}
+30                                      \{
+31         \textcolor{keywordflow}{return} msg.c\_str();
+32     \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+model/\hyperlink{floodexception_8h}{floodexception.\+h}\end{DoxyCompactItemize}

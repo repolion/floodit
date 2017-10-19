@@ -1,6 +1,0 @@
-#include "rest"
-
-Reset::Reset()
-{
-
-}

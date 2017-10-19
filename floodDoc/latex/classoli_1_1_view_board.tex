@@ -1,0 +1,218 @@
+\hypertarget{classoli_1_1_view_board}{}\section{oli\+:\+:View\+Board Class Reference}
+\label{classoli_1_1_view_board}\index{oli\+::\+View\+Board@{oli\+::\+View\+Board}}
+
+
+The \hyperlink{classoli_1_1_view_board}{View\+Board} class the class that create and refresh the game\textquotesingle{}s board view.  
+
+
+
+
+{\ttfamily \#include $<$viewboard.\+h$>$}
+
+Inheritance diagram for oli\+:\+:View\+Board\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoli_1_1_view_board}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classoli_1_1_view_board_a6490954a9baf4e72e899ba10a4f414b7}{test} ()
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_view_board_a36385a4f3f367326ad864c64e6dff4bc}{View\+Board} ()
+\item 
+\hyperlink{classoli_1_1_view_board_a0d4a844b1b5450ab623a747b7ced2e59}{View\+Board} (Q\+Widget \&fenetre, \hyperlink{classoli_1_1_floodgame}{Floodgame} $\ast$game, int nb\+Col)
+\item 
+void \hyperlink{classoli_1_1_view_board_a0f9e3b18dfb6f2224bef1b73ce8b3929}{set\+Display} ()
+\item 
+void \hyperlink{classoli_1_1_view_board_a487ea5886ec5de0422fc6e060aa7045b}{Update} ()
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_view_board}{View\+Board} class the class that create and refresh the game\textquotesingle{}s board view. 
+
+Definition at line 19 of file viewboard.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_view_board_a36385a4f3f367326ad864c64e6dff4bc}{}\label{classoli_1_1_view_board_a36385a4f3f367326ad864c64e6dff4bc} 
+\index{oli\+::\+View\+Board@{oli\+::\+View\+Board}!View\+Board@{View\+Board}}
+\index{View\+Board@{View\+Board}!oli\+::\+View\+Board@{oli\+::\+View\+Board}}
+\subsubsection{\texorpdfstring{View\+Board()}{ViewBoard()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily oli\+::\+View\+Board\+::\+View\+Board (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file viewboard.\+cpp.
+
+
+\begin{DoxyCode}
+5 \{\}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_view_board_a0d4a844b1b5450ab623a747b7ced2e59}{}\label{classoli_1_1_view_board_a0d4a844b1b5450ab623a747b7ced2e59} 
+\index{oli\+::\+View\+Board@{oli\+::\+View\+Board}!View\+Board@{View\+Board}}
+\index{View\+Board@{View\+Board}!oli\+::\+View\+Board@{oli\+::\+View\+Board}}
+\subsubsection{\texorpdfstring{View\+Board()}{ViewBoard()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily oli\+::\+View\+Board\+::\+View\+Board (\begin{DoxyParamCaption}\item[{Q\+Widget \&}]{fenetre,  }\item[{\hyperlink{classoli_1_1_floodgame}{Floodgame} $\ast$}]{game,  }\item[{int}]{nb\+Col }\end{DoxyParamCaption})}
+
+
+
+Definition at line 7 of file viewboard.\+cpp.
+
+
+\begin{DoxyCode}
+7                                                                 \{
+8 
+9     \_game = game;
+10     \_ql = \textcolor{keyword}{new} QLabel(&fenetre);
+11     \_ql->setFixedHeight(525);
+12 
+13     \_gameOver = \textcolor{keyword}{new} QLabel(&fenetre);
+14     \_gameOver->setFixedHeight(525);
+15     \_gameOver->setFixedWidth(720);
+16     \_gameOver->setAlignment(Qt::AlignCenter);
+17 
+18     \_buttonWidget = \textcolor{keyword}{new} ButtonWidget(nbCol,&fenetre);
+19     \_vBox = \textcolor{keyword}{new} QVBoxLayout();
+20     \_hboxBoutons = \textcolor{keyword}{new} QHBoxLayout;
+21     \_record = \textcolor{keyword}{new} QLabel(&fenetre);
+22     \_nbClickLabel = \textcolor{keyword}{new} QLabel(&fenetre);
+23 
+24     QPushButton *restart = \textcolor{keyword}{new} QPushButton(\textcolor{stringliteral}{"Restart"});
+25     QPushButton *quit = \textcolor{keyword}{new} QPushButton(\textcolor{stringliteral}{"Quit"});
+26 
+27     QObject::connect(quit,SIGNAL(clicked()),&fenetre,SLOT(reemit()));
+28     QObject::connect(restart,SIGNAL(clicked()),&fenetre,SLOT(restart()));
+29 
+30     quit->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+31     restart->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+32 
+33     \_hboxBoutons->addWidget(restart);
+34     \_hboxBoutons->addWidget(quit);
+35     \_hboxBoutons->setAlignment(restart,Qt::AlignRight);
+36     \_hboxBoutons->setAlignment(quit,Qt::AlignLeft);
+37 
+38     fenetre.setLayout(\_vBox);
+39     \hyperlink{classoli_1_1_view_board_a0f9e3b18dfb6f2224bef1b73ce8b3929}{setDisplay}();
+40 
+41     \_vBox->addWidget(\_ql);
+42     \_vBox->addWidget(\_record);
+43     \_vBox->addWidget(\_nbClickLabel);
+44     \_vBox->addWidget(\_buttonWidget);
+45     \_vBox->setAlignment(\_buttonWidget,Qt::AlignHCenter);
+46 
+47     \_vBox->addLayout(\_hboxBoutons);
+48 
+49 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_view_board_a0f9e3b18dfb6f2224bef1b73ce8b3929}{}\label{classoli_1_1_view_board_a0f9e3b18dfb6f2224bef1b73ce8b3929} 
+\index{oli\+::\+View\+Board@{oli\+::\+View\+Board}!set\+Display@{set\+Display}}
+\index{set\+Display@{set\+Display}!oli\+::\+View\+Board@{oli\+::\+View\+Board}}
+\subsubsection{\texorpdfstring{set\+Display()}{setDisplay()}}
+{\footnotesize\ttfamily void oli\+::\+View\+Board\+::set\+Display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 51 of file viewboard.\+cpp.
+
+
+\begin{DoxyCode}
+51                           \{
+52 
+53     \textcolor{keywordflow}{if}((\_valueRecord =\_game->\hyperlink{classoli_1_1_floodgame_af0084c4fecf2b51da6aed1f73de05e9e}{getRecord}())==0)\{
+54         \_record->setText(\textcolor{stringliteral}{""});
+55     \}\textcolor{keywordflow}{else}\{
+56         \_record->setText(\textcolor{stringliteral}{"Record: "}+QVariant(\_valueRecord).toString()+\textcolor{stringliteral}{" clicks"});
+57         \_record->setAlignment(Qt::AlignCenter);
+58         \_record->setStyleSheet(\textcolor{stringliteral}{"QLabel \{ background-color : transparent; color : orange; \}"});
+59     \}
+60 
+61     \_nbClickLabel->setText(\textcolor{stringliteral}{"Clicked "}+QVariant(\_game->\hyperlink{classoli_1_1_floodgame_aae08dd4e048b1521797c44a68d08f250}{getNbClick}()).toString() +\textcolor{stringliteral}{" times"});
+62     \_nbClickLabel->setAlignment(Qt::AlignCenter);
+63     \_nbClickLabel->setStyleSheet(\textcolor{stringliteral}{"QLabel \{ background-color : transparent; color : white; \}"});
+64 
+65     \_width = \_game->\hyperlink{classoli_1_1_floodgame_a4775f2321f034778d4de93a888d2283b}{getBoard}().\hyperlink{classoli_1_1_board_a228d72d2aa8a9df2f545ecef14e72a0d}{getWidth}();
+66     \_height = \_game->\hyperlink{classoli_1_1_floodgame_a4775f2321f034778d4de93a888d2283b}{getBoard}().\hyperlink{classoli_1_1_board_a17dce7dacfe888f52dfad0468ae51ace}{getHeight}();
+67 
+68     \textcolor{keywordtype}{int} brolWidth = \_width;
+69     \textcolor{keywordtype}{int} brolHeight = \_height;
+70     \textcolor{keywordtype}{int} block\_width = 500 / [brolWidth, brolHeight]()\{
+71         \textcolor{keywordtype}{int} x;
+72         (brolWidth > brolHeight) ? x = brolWidth : x = brolHeight;
+73         \textcolor{keywordflow}{return} x;
+74     \}();
+75     QPixmap \_pixmap;
+76     \textcolor{keywordflow}{if}(!\_game->\hyperlink{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5}{isGameOver}())\{
+77         \_pixmap= QPixmap(\_width*block\_width+1,\_height*block\_width+1);
+78     \}
+79     \textcolor{keywordflow}{else} \_pixmap = QPixmap(490,490);
+80     \_pixmap.fill(QColor(\textcolor{stringliteral}{"blue"}));
+81     \textcolor{keywordflow}{if}(!\_game->\hyperlink{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5}{isGameOver}())\{
+82         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int} i = 0; i < \_height; i++)\{
+83             \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} j = 0; j < \_width; j++)\{
+84                 QPainter painter(&\_pixmap);
+85                 painter.setPen(QColor(81,81,81,255));
+86                 painter.setBrush(\hyperlink{classoli_1_1_color_convert_a4c41280d24ad2cba4b2a46fbb03f2356}{ColorConvert::getQColor}(\_game->
+      \hyperlink{classoli_1_1_floodgame_a4775f2321f034778d4de93a888d2283b}{getBoard}().\hyperlink{classoli_1_1_board_a5c1ce624776b1169ee16d8d815e9a453}{getSquare}(i,j).\hyperlink{classoli_1_1_square_a7709b35684fb5754e53d138bb916880c}{getColor}()));
+87                 QRect myQRect=(QRect(j*block\_width,i*block\_width,block\_width,block\_width));
+88                 painter.drawRect(myQRect);
+89             \}
+90         \}
+91     \}
+92     \textcolor{keywordflow}{if}(\_game->\hyperlink{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5}{isGameOver}() && \_game->\hyperlink{classoli_1_1_floodgame_a35b5e1c7f39c73d7d46b8c71156fbfbc}{isNewRecord}())\{
+93         \_gameOver->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/highScore.png"}).scaled(QSize(300,300),  Qt::KeepAspectRatio)
+      );
+94     \}
+95     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(\_game->\hyperlink{classoli_1_1_floodgame_adfcb41900bae06b64a8d4d77164b67d5}{isGameOver}())\{
+96         \_gameOver->setPixmap(QPixmap(\textcolor{stringliteral}{":/images/gameOver2.png"}).scaled(QSize(300,300),  Qt::KeepAspectRatio)
+      );
+97     \}
+98     \textcolor{keywordflow}{else} \_gameOver->setPixmap(QPixmap(\textcolor{stringliteral}{""}));
+99     \_ql->setAlignment(Qt::AlignCenter);
+100 
+101     \_ql->setPixmap(\_pixmap);
+102 
+103 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_view_board_a6490954a9baf4e72e899ba10a4f414b7}{}\label{classoli_1_1_view_board_a6490954a9baf4e72e899ba10a4f414b7} 
+\index{oli\+::\+View\+Board@{oli\+::\+View\+Board}!test@{test}}
+\index{test@{test}!oli\+::\+View\+Board@{oli\+::\+View\+Board}}
+\subsubsection{\texorpdfstring{test}{test}}
+{\footnotesize\ttfamily void oli\+::\+View\+Board\+::test (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+\hypertarget{classoli_1_1_view_board_a487ea5886ec5de0422fc6e060aa7045b}{}\label{classoli_1_1_view_board_a487ea5886ec5de0422fc6e060aa7045b} 
+\index{oli\+::\+View\+Board@{oli\+::\+View\+Board}!Update@{Update}}
+\index{Update@{Update}!oli\+::\+View\+Board@{oli\+::\+View\+Board}}
+\subsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void oli\+::\+View\+Board\+::\+Update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Implements \hyperlink{classoli_1_1_observer_a81154a42166f88a6e341909438a07b75}{oli\+::\+Observer}.
+
+
+
+Definition at line 105 of file viewboard.\+cpp.
+
+
+\begin{DoxyCode}
+105                       \{
+106     \hyperlink{classoli_1_1_view_board_a0f9e3b18dfb6f2224bef1b73ce8b3929}{setDisplay}();
+107 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+view/\hyperlink{viewboard_8h}{viewboard.\+h}\item 
+view/\hyperlink{viewboard_8cpp}{viewboard.\+cpp}\end{DoxyCompactItemize}

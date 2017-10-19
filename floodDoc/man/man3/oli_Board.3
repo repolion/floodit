@@ -1,0 +1,183 @@
+.TH "oli::Board" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::Board \- The \fBBoard\fP class\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <board\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBBoard\fP ()"
+.br
+.RI "\fBBoard\fP the default constructor\&. "
+.ti -1c
+.RI "\fB~Board\fP ()"
+.br
+.ti -1c
+.RI "\fBBoard\fP (int x, int y, int nbCol)"
+.br
+.RI "\fBBoard\fP getters height\&. "
+.ti -1c
+.RI "int \fBgetWidth\fP ()"
+.br
+.ti -1c
+.RI "int \fBgetHeight\fP ()"
+.br
+.RI "getHeight getters width "
+.ti -1c
+.RI "\fBSquare\fP & \fBgetSquare\fP (int x, int y)"
+.br
+.RI "getSquare "
+.ti -1c
+.RI "void \fBchangeColorBoard\fP (int x, int y, \fBColor\fP color)"
+.br
+.RI "changeColorBoard to change the color of a certain square on the board "
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fBBoard\fP class\&. 
+.PP
+Definition at line 12 of file board\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::Board::Board ()"
+
+.PP
+\fBBoard\fP the default constructor\&. 
+.PP
+Definition at line 6 of file board\&.cpp\&.
+.PP
+.nf
+6 {}
+.fi
+.SS "oli::Board::~Board ()"
+
+.PP
+Definition at line 27 of file board\&.cpp\&.
+.PP
+.nf
+27 {}
+.fi
+.SS "oli::Board::Board (int x, int y, int nbCol)"
+
+.PP
+\fBBoard\fP getters height\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the board's width 
+.br
+\fIy\fP the board's height 
+.br
+\fInbCol\fP the number of color possible for the squares 
+.RE
+.PP
+
+.PP
+Definition at line 8 of file board\&.cpp\&.
+.PP
+.nf
+8                                            {
+9     _width = width;
+10     _height = height ;
+11     if(_width<5 || _width>35||_height<5 || _height>35){
+12           throw FloodException {"Size invalid for the board, min 5 and max 35\&."};
+13     }
+14 
+15     for (int y=0; y<_height; y++){
+16         _squares\&.resize(height,std::vector<Square>(width));
+17     }
+18 
+19 
+20     for (int y = 0; y<_height; y++){
+21         for (int x = 0; x<_width; x++){
+22             _squares[y][x]=Square(Position(x,y),nbCol);
+23         }
+24     }
+25     _squares[0][0]\&.setCaptured();
+26 }
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void oli::Board::changeColorBoard (int x, int y, \fBColor\fP color)"
+
+.PP
+changeColorBoard to change the color of a certain square on the board 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP position on x axis 
+.br
+\fIy\fP position on y axis 
+.br
+\fIcolor\fP the new color 
+.RE
+.PP
+
+.PP
+Definition at line 41 of file board\&.cpp\&.
+.PP
+.nf
+41                                                    {
+42     _squares[x][y]\&.setColor(color);
+43 }
+.fi
+.SS "int oli::Board::getHeight ()"
+
+.PP
+getHeight getters width 
+.PP
+\fBReturns:\fP
+.RS 4
+the board's width 
+.RE
+.PP
+
+.PP
+Definition at line 33 of file board\&.cpp\&.
+.PP
+.nf
+33                     {
+34     return _height;
+35 }
+.fi
+.SS "\fBSquare\fP & oli::Board::getSquare (int x, int y)"
+
+.PP
+getSquare 
+.PP
+\fBReturns:\fP
+.RS 4
+the board's height 
+.RE
+.PP
+
+.PP
+Definition at line 37 of file board\&.cpp\&.
+.PP
+.nf
+37                                    {
+38     return _squares[x][y];
+39 }
+.fi
+.SS "int oli::Board::getWidth ()"
+
+.PP
+Definition at line 29 of file board\&.cpp\&.
+.PP
+.nf
+29                    {
+30     return _width;
+31 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

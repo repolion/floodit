@@ -1,0 +1,466 @@
+.TH "oli::Floodgame" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli::Floodgame \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <floodgame\&.h>\fP
+.PP
+Inherits \fBoli::Observable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBFloodgame\fP (int height, int width, int nbCol)"
+.br
+.RI "\fBFloodgame\fP the game's constructor with parameters\&. "
+.ti -1c
+.RI "\fB~Floodgame\fP ()"
+.br
+.ti -1c
+.RI "\fBBoard\fP & \fBgetBoard\fP ()"
+.br
+.RI "getBoard "
+.ti -1c
+.RI "void \fBaddCaptured\fP (\fBPosition\fP position)"
+.br
+.RI "addCaptured add a \fBPosition\fP to the list of position captured "
+.ti -1c
+.RI "int \fBgetNbColors\fP ()"
+.br
+.RI "getNbColors "
+.ti -1c
+.RI "void \fBinit\fP (int height, int width, int nbCol)"
+.br
+.RI "init to initialise a new game "
+.ti -1c
+.RI "void \fBfloodFill\fP (int x, int y, \fBColor\fP newColor, \fBColor\fP oldColor, int cpt)"
+.br
+.RI "floodFill The algorithm to check the board for new position to capture "
+.ti -1c
+.RI "void \fBsetNewColor\fP (\fBColor\fP color)"
+.br
+.RI "setNewColor "
+.ti -1c
+.RI "void \fBchangeCurrentColor\fP (\fBColor\fP color, int count)"
+.br
+.RI "changeCurrentColor "
+.ti -1c
+.RI "bool \fBgetIsGameOver\fP ()"
+.br
+.RI "getIsGameOver to get the gameover status "
+.ti -1c
+.RI "void \fBsetNbClick\fP ()"
+.br
+.RI "setNbClick to set the number of click made "
+.ti -1c
+.RI "\fBColor\fP \fBgetLastColor\fP ()"
+.br
+.RI "getLastColor "
+.ti -1c
+.RI "bool \fBisGameOver\fP ()"
+.br
+.RI "isGameOver "
+.ti -1c
+.RI "bool \fBisNewRecord\fP ()"
+.br
+.RI "isNewRecord "
+.ti -1c
+.RI "int \fBgetNbClick\fP ()"
+.br
+.RI "getNbClick "
+.ti -1c
+.RI "int \fBgetRecord\fP ()"
+.br
+.RI "getRecord "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 17 of file floodgame\&.h\&.
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "oli::Floodgame::Floodgame (int height, int width, int nbCol)"
+
+.PP
+\fBFloodgame\fP the game's constructor with parameters\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIheight\fP the board's height 
+.br
+\fIwidth\fP the board's width 
+.br
+\fInbCol\fP the number of color possible for the squares 
+.RE
+.PP
+
+.PP
+Definition at line 5 of file floodgame\&.cpp\&.
+.PP
+.nf
+6 {
+7     try
+8     {
+9         init(height,width,nbColors);
+10     }
+11     catch (FloodException e)
+12     {
+13         std::cerr << e\&.what();
+14         exit(0);
+15     }
+16 }
+.fi
+.SS "oli::Floodgame::~Floodgame ()"
+
+.PP
+Definition at line 44 of file floodgame\&.cpp\&.
+.PP
+.nf
+44 {}
+.fi
+.SH "Member Function Documentation"
+.PP 
+.SS "void oli::Floodgame::addCaptured (\fBPosition\fP position)"
+
+.PP
+addCaptured add a \fBPosition\fP to the list of position captured 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIposition\fP the position of the new position captured 
+.RE
+.PP
+
+.PP
+Definition at line 54 of file floodgame\&.cpp\&.
+.PP
+.nf
+54                                             {
+55     _listCaptured\&.push_back(position);
+56 }
+.fi
+.SS "void oli::Floodgame::changeCurrentColor (\fBColor\fP color, int count)"
+
+.PP
+changeCurrentColor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcolor\fP the new color to set 
+.br
+\fIcount\fP a counter initialised 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file floodgame\&.cpp\&.
+.PP
+.nf
+58                                                      {
+59     setNewColor(color);
+60     if (color == _lastColor && cpt!=0)return;
+61     for(Position pos: _listCaptured){
+62         floodFill(pos\&.getX(),pos\&.getY(),_newColor,_lastColor,cpt);
+63     }
+64     _isGameOver=isGameOver();
+65     if(_isGameOver){
+66         _highScore = HighScore(_board\&.getWidth(),_board\&.getHeight(),_nbClick,_nbColors);
+67         if (checkScores())_newRecord=true;
+68     }
+69     Notify();
+70 }
+.fi
+.SS "void oli::Floodgame::floodFill (int x, int y, \fBColor\fP newColor, \fBColor\fP oldColor, int cpt)"
+
+.PP
+floodFill The algorithm to check the board for new position to capture 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIx\fP the x axis position 
+.br
+\fIy\fP the y axis position 
+.br
+\fInewColor\fP the new color 
+.br
+\fIoldColor\fP the old color 
+.br
+\fIcpt\fP a counter 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file floodgame\&.cpp\&.
+.PP
+.nf
+72                                                                           {
+73 
+74     if(x<0 || y<0 || x>=_board\&.getHeight() || y>=_board\&.getWidth())return;
+75 
+76     if(cpt==0) _board\&.changeColorBoard(x,y,newColor);
+77     else {
+78         if(_board\&.getSquare(x,y)\&.getColor()==newColor){
+79             if(!_board\&.getSquare(x,y)\&.getCaptured()){
+80                 _board\&.getSquare(x,y)\&.setCaptured();
+81                 addCaptured(Position(x,y));
+82             }
+83         }
+84     }
+85 
+86     ++cpt;
+87     if(cpt==1){
+88         floodFill(x+1, y, newColor,oldColor,cpt);
+89         floodFill(x-1, y, newColor,oldColor,cpt);
+90         floodFill(x, y+1, newColor,oldColor,cpt);
+91         floodFill(x, y-1, newColor,oldColor,cpt);
+92     }
+93 
+94 }
+.fi
+.SS "\fBBoard\fP & oli::Floodgame::getBoard ()"
+
+.PP
+getBoard 
+.PP
+\fBReturns:\fP
+.RS 4
+the board 
+.RE
+.PP
+
+.PP
+Definition at line 46 of file floodgame\&.cpp\&.
+.PP
+.nf
+46                           {
+47     return _board;
+48 }
+.fi
+.SS "bool oli::Floodgame::getIsGameOver ()"
+
+.PP
+getIsGameOver to get the gameover status 
+.PP
+\fBReturns:\fP
+.RS 4
+if the game is over or not 
+.RE
+.PP
+
+.PP
+Definition at line 105 of file floodgame\&.cpp\&.
+.PP
+.nf
+105                              {
+106     return _isGameOver;
+107 }
+.fi
+.SS "\fBColor\fP oli::Floodgame::getLastColor ()"
+
+.PP
+getLastColor 
+.PP
+\fBReturns:\fP
+.RS 4
+the last color choosed 
+.RE
+.PP
+
+.PP
+Definition at line 109 of file floodgame\&.cpp\&.
+.PP
+.nf
+109                              {
+110     return _newColor;
+111 }
+.fi
+.SS "int oli::Floodgame::getNbClick ()"
+
+.PP
+getNbClick 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of click 
+.RE
+.PP
+
+.PP
+Definition at line 121 of file floodgame\&.cpp\&.
+.PP
+.nf
+121                          {
+122     return _nbClick;
+123 }
+.fi
+.SS "int oli::Floodgame::getNbColors ()"
+
+.PP
+getNbColors 
+.PP
+\fBReturns:\fP
+.RS 4
+the number of color possible for a square 
+.RE
+.PP
+
+.PP
+Definition at line 50 of file floodgame\&.cpp\&.
+.PP
+.nf
+50                           {
+51     return _nbColors;
+52 }
+.fi
+.SS "int oli::Floodgame::getRecord ()"
+
+.PP
+getRecord 
+.PP
+\fBReturns:\fP
+.RS 4
+the record 
+.RE
+.PP
+
+.PP
+Definition at line 165 of file floodgame\&.cpp\&.
+.PP
+.nf
+165                         {
+166     QJsonObject gameObject;
+167     gameObject =loadSavedScores();
+168     QString id =_highScore\&.getId();
+169 
+170     if(gameObject\&.contains(id)){
+171         return gameObject\&.value(id)\&.toInt();
+172     }
+173     else{
+174         return 0;
+175     }
+176 
+177 }
+.fi
+.SS "void oli::Floodgame::init (int height, int width, int nbCol)"
+
+.PP
+init to initialise a new game 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIheight\fP the board's height 
+.br
+\fIwidth\fP the board's width 
+.br
+\fInbCol\fP the number of different color possible for the squares 
+.RE
+.PP
+
+.PP
+Definition at line 18 of file floodgame\&.cpp\&.
+.PP
+.nf
+18                                                   {
+19     _nbClick = 0;
+20     _isGameOver = false;
+21     _nbColors = nbCol;
+22     _started = true;
+23     _isGameOver = false;
+24     try
+25     {
+26         _board = Board(height,width,_nbColors);
+27     }
+28     catch (FloodException e)
+29     {
+30         std::cerr << e\&.what();
+31         exit(0);
+32     }
+33 
+34     _listCaptured\&.clear();
+35     _listCaptured\&.push_back(Position(0,0));
+36     _lastColor = _board\&.getSquare(0,0)\&.getColor();
+37     _newColor = _board\&.getSquare(0,0)\&.getColor();
+38     this->changeCurrentColor(_lastColor,0);
+39     _highScore = HighScore(_board\&.getWidth(),_board\&.getHeight(),_nbColors);
+40     _newRecord = false;
+41 
+42 }
+.fi
+.SS "bool oli::Floodgame::isGameOver ()"
+
+.PP
+isGameOver 
+.PP
+\fBReturns:\fP
+.RS 4
+if the game is over or not 
+.RE
+.PP
+
+.PP
+Definition at line 101 of file floodgame\&.cpp\&.
+.PP
+.nf
+101                           {
+102     return static_cast<int>(_listCaptured\&.size())==_board\&.getWidth()*_board\&.getHeight();
+103 }
+.fi
+.SS "bool oli::Floodgame::isNewRecord ()"
+
+.PP
+isNewRecord 
+.PP
+\fBReturns:\fP
+.RS 4
+if the actual score is a new record or not 
+.RE
+.PP
+
+.PP
+Definition at line 117 of file floodgame\&.cpp\&.
+.PP
+.nf
+117                            {
+118     return _newRecord;
+119 }
+.fi
+.SS "void oli::Floodgame::setNbClick ()"
+
+.PP
+setNbClick to set the number of click made 
+.PP
+Definition at line 113 of file floodgame\&.cpp\&.
+.PP
+.nf
+113                           {
+114     ++_nbClick;
+115 }
+.fi
+.SS "void oli::Floodgame::setNewColor (\fBColor\fP color)"
+
+.PP
+setNewColor 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIcolor\fP the new color to set 
+.RE
+.PP
+
+.PP
+Definition at line 96 of file floodgame\&.cpp\&.
+.PP
+.nf
+96                                       {
+97     _lastColor = _newColor;
+98     _newColor = color;
+99 }
+.fi
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

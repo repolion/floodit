@@ -1,0 +1,100 @@
+.TH "oli" 3 "Thu Oct 19 2017" "Version Flood It by Olivier Cordier" "Flood it" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+oli \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBBoard\fP"
+.br
+.RI "The \fBBoard\fP class\&. "
+.ti -1c
+.RI "class \fBButtonWidget\fP"
+.br
+.RI "The \fBButtonWidget\fP class\&. "
+.ti -1c
+.RI "class \fBColorConvert\fP"
+.br
+.RI "The \fBColorConvert\fP class Class used by others class to convert a color to a QColor\&. "
+.ti -1c
+.RI "class \fBFloodException\fP"
+.br
+.RI "The \fBFloodException\fP class This is the exception class used for the game \&. "
+.ti -1c
+.RI "class \fBFloodgame\fP"
+.br
+.ti -1c
+.RI "class \fBHighScore\fP"
+.br
+.RI "The \fBHighScore\fP class Used to compare old results and the new score according to the weight, the height and the number of colors function\&. "
+.ti -1c
+.RI "class \fBObservable\fP"
+.br
+.RI "The \fBObservable\fP class Interface implemented by the classes that have to be observed\&. "
+.ti -1c
+.RI "class \fBObserver\fP"
+.br
+.RI "The \fBObserver\fP class Implemented by the class that have to Observe another class(observable) "
+.ti -1c
+.RI "class \fBPosition\fP"
+.br
+.RI "The \fBPosition\fP class\&. "
+.ti -1c
+.RI "class \fBSquare\fP"
+.br
+.ti -1c
+.RI "class \fBViewBoard\fP"
+.br
+.RI "The \fBViewBoard\fP class the class that create and refresh the game's board view\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBColor\fP { \fBColor::RED\fP, \fBColor::GREEN\fP, \fBColor::YELLOW\fP, \fBColor::BLUE\fP, \fBColor::PURPLE\fP, \fBColor::DEEPPINK\fP, \fBColor::CYAN\fP, \fBColor::ORANGE\fP, \fBColor::GREY\fP }
+.RI "The Color enum This enumeration is used to set a color to a square\&. ""
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBoli::Color\fP\fC [strong]\fP"
+
+.PP
+The Color enum This enumeration is used to set a color to a square\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIRED \fP\fP
+.TP
+\fB\fIGREEN \fP\fP
+.TP
+\fB\fIYELLOW \fP\fP
+.TP
+\fB\fIBLUE \fP\fP
+.TP
+\fB\fIPURPLE \fP\fP
+.TP
+\fB\fIDEEPPINK \fP\fP
+.TP
+\fB\fICYAN \fP\fP
+.TP
+\fB\fIORANGE \fP\fP
+.TP
+\fB\fIGREY \fP\fP
+.PP
+Definition at line 10 of file color\&.h\&.
+.PP
+.nf
+11 {
+12     RED,GREEN,YELLOW,BLUE,PURPLE,DEEPPINK,CYAN,ORANGE,GREY
+13 };
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Flood it from the source code\&.

@@ -1,0 +1,146 @@
+\hypertarget{class_options}{}\section{Options Class Reference}
+\label{class_options}\index{Options@{Options}}
+
+
+The \hyperlink{class_options}{Options} class the class that make possible to change new game\textquotesingle{}s options.  
+
+
+
+
+{\ttfamily \#include $<$options.\+h$>$}
+
+Inheritance diagram for Options\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_options}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_options_aebc534fbc72d1be99b44fdd691d10ebc}{options} (int height, int width, int nb\+Col)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_options_a87403ad1d6bd9ae2b54af860bb0f0952}{Options} (Q\+Widget $\ast$parent=0)
+\item 
+\hyperlink{class_options_a86ddb85b183f8b58af5481f30a42fa92}{$\sim$\+Options} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{class_options}{Options} class the class that make possible to change new game\textquotesingle{}s options. 
+
+Definition at line 18 of file options.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_options_a87403ad1d6bd9ae2b54af860bb0f0952}{}\label{class_options_a87403ad1d6bd9ae2b54af860bb0f0952} 
+\index{Options@{Options}!Options@{Options}}
+\index{Options@{Options}!Options@{Options}}
+\subsubsection{\texorpdfstring{Options()}{Options()}}
+{\footnotesize\ttfamily Options\+::\+Options (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line 3 of file options.\+cpp.
+
+
+\begin{DoxyCode}
+3                                 :
+4     QWidget(parent)
+5 \{
+6     QVBoxLayout *boxAll = \textcolor{keyword}{new} QVBoxLayout();
+7     QHBoxLayout *boxSize = \textcolor{keyword}{new} QHBoxLayout();
+8     QHBoxLayout *boxWidth = \textcolor{keyword}{new} QHBoxLayout();
+9 
+10 
+11     QLabel *width = \textcolor{keyword}{new} QLabel(\textcolor{stringliteral}{"width"});
+12 
+13     QHBoxLayout *boxHeight = \textcolor{keyword}{new} QHBoxLayout();
+14     QLabel *height = \textcolor{keyword}{new} QLabel(\textcolor{stringliteral}{"height"});
+15     QHBoxLayout *boxColors = \textcolor{keyword}{new} QHBoxLayout();
+16     QLabel *nbColors = \textcolor{keyword}{new} QLabel(\textcolor{stringliteral}{"Number of colors"});
+17     QPushButton *start = \textcolor{keyword}{new} QPushButton(\textcolor{stringliteral}{"Start"});
+18     QPushButton *cancel = \textcolor{keyword}{new} QPushButton(\textcolor{stringliteral}{"Cancel"});
+19 
+20     \_spinWidth = \textcolor{keyword}{new} QSpinBox();
+21     \_spinWidth->setRange(5,35);
+22     \_spinWidth->setValue(10);
+23 
+24     \_spinHeight = \textcolor{keyword}{new} QSpinBox();
+25     \_spinHeight->setRange(5,35);
+26     \_spinHeight->setValue(10);
+27 
+28     \_spinColors = \textcolor{keyword}{new} QSpinBox();
+29     \_spinColors->setRange(2,8);
+30     \_spinColors->setValue(4);
+31 
+32     width->setStyleSheet(\textcolor{stringliteral}{"QLabel \{ background-color : transparent; color : white; \}"});
+33     height->setStyleSheet(\textcolor{stringliteral}{"QLabel \{ background-color : transparent; color : white; \}"});
+34     nbColors->setStyleSheet(\textcolor{stringliteral}{"QLabel \{ background-color : transparent; color : white; \}"});
+35 
+36     start->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+37     cancel->setSizePolicy(QSizePolicy::Fixed,QSizePolicy::Fixed);
+38 
+39     connect(cancel,SIGNAL(clicked()),parent,SLOT(cancel()));
+40     connect(start,SIGNAL(clicked()),\textcolor{keyword}{this},SLOT(reemitOptions()));
+41 
+42     boxWidth->addWidget(width);
+43     boxWidth->addWidget(\_spinWidth);
+44 
+45     boxWidth->addWidget(height);
+46     boxWidth->addWidget(\_spinHeight);
+47 
+48     boxSize->addLayout(boxWidth);
+49     boxSize->addLayout(boxHeight);
+50 
+51     boxColors->addWidget(nbColors);
+52     boxColors->addWidget(\_spinColors);
+53 
+54     boxAll->addLayout(boxSize);
+55     boxAll->addLayout(boxColors);
+56     boxAll->addWidget(start);
+57     boxAll->addWidget(cancel);
+58 
+59     boxAll->setAlignment(start,Qt::AlignCenter);
+60     boxAll->setAlignment(cancel,Qt::AlignCenter);
+61     boxAll->setAlignment(Qt::AlignCenter);
+62     boxAll->setMargin(240);
+63 
+64     setLayout(boxAll);
+65 
+66     connect(\textcolor{keyword}{this},(SIGNAL(\hyperlink{class_options_aebc534fbc72d1be99b44fdd691d10ebc}{options}(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int},\textcolor{keywordtype}{int}))),parent,SLOT(newGame(\textcolor{keywordtype}{int},\textcolor{keywordtype}{int},\textcolor{keywordtype}{int})));
+67 \}
+\end{DoxyCode}
+\hypertarget{class_options_a86ddb85b183f8b58af5481f30a42fa92}{}\label{class_options_a86ddb85b183f8b58af5481f30a42fa92} 
+\index{Options@{Options}!````~Options@{$\sim$\+Options}}
+\index{````~Options@{$\sim$\+Options}!Options@{Options}}
+\subsubsection{\texorpdfstring{$\sim$\+Options()}{~Options()}}
+{\footnotesize\ttfamily Options\+::$\sim$\+Options (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 69 of file options.\+cpp.
+
+
+\begin{DoxyCode}
+69 \{\}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_options_aebc534fbc72d1be99b44fdd691d10ebc}{}\label{class_options_aebc534fbc72d1be99b44fdd691d10ebc} 
+\index{Options@{Options}!options@{options}}
+\index{options@{options}!Options@{Options}}
+\subsubsection{\texorpdfstring{options}{options}}
+{\footnotesize\ttfamily void Options\+::options (\begin{DoxyParamCaption}\item[{int}]{height,  }\item[{int}]{width,  }\item[{int}]{nb\+Col }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+view/\hyperlink{options_8h}{options.\+h}\item 
+view/\hyperlink{options_8cpp}{options.\+cpp}\end{DoxyCompactItemize}

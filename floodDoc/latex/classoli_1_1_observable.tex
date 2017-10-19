@@ -1,0 +1,124 @@
+\hypertarget{classoli_1_1_observable}{}\section{oli\+:\+:Observable Class Reference}
+\label{classoli_1_1_observable}\index{oli\+::\+Observable@{oli\+::\+Observable}}
+
+
+The \hyperlink{classoli_1_1_observable}{Observable} class Interface implemented by the classes that have to be observed.  
+
+
+
+
+{\ttfamily \#include $<$observable.\+h$>$}
+
+Inheritance diagram for oli\+:\+:Observable\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoli_1_1_observable}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classoli_1_1_observable_af746a8f49e2b08bc93767281dd813532}{Add\+Obs} (\hyperlink{classoli_1_1_observer}{Observer} $\ast$obs)
+\item 
+void \hyperlink{classoli_1_1_observable_a9fb13016d9b81c1132171b581e243d8b}{Del\+Obs} (\hyperlink{classoli_1_1_observer}{Observer} $\ast$obs)
+\item 
+void \hyperlink{classoli_1_1_observable_ab1fe0a40f7aaa9d9acee97f8c08ec328}{Notify} (void)
+\item 
+virtual \hyperlink{classoli_1_1_observable_aabeb2ecf331c7ecb274594df6f4e82b1}{$\sim$\+Observable} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_observable}{Observable} class Interface implemented by the classes that have to be observed. 
+
+Definition at line 12 of file observable.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_observable_aabeb2ecf331c7ecb274594df6f4e82b1}{}\label{classoli_1_1_observable_aabeb2ecf331c7ecb274594df6f4e82b1} 
+\index{oli\+::\+Observable@{oli\+::\+Observable}!````~Observable@{$\sim$\+Observable}}
+\index{````~Observable@{$\sim$\+Observable}!oli\+::\+Observable@{oli\+::\+Observable}}
+\subsubsection{\texorpdfstring{$\sim$\+Observable()}{~Observable()}}
+{\footnotesize\ttfamily oli\+::\+Observable\+::$\sim$\+Observable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Definition at line 17 of file observable.\+cpp.
+
+
+\begin{DoxyCode}
+17                        \{
+18     iterator itb=m\_list.begin();
+19     const\_iterator ite=m\_list.end();
+20 
+21     \textcolor{keywordflow}{for}(;itb!=ite;++itb)\{
+22         (*itb)->DelObs(\textcolor{keyword}{this});
+23     \}
+24 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_observable_af746a8f49e2b08bc93767281dd813532}{}\label{classoli_1_1_observable_af746a8f49e2b08bc93767281dd813532} 
+\index{oli\+::\+Observable@{oli\+::\+Observable}!Add\+Obs@{Add\+Obs}}
+\index{Add\+Obs@{Add\+Obs}!oli\+::\+Observable@{oli\+::\+Observable}}
+\subsubsection{\texorpdfstring{Add\+Obs()}{AddObs()}}
+{\footnotesize\ttfamily void oli\+::\+Observable\+::\+Add\+Obs (\begin{DoxyParamCaption}\item[{\hyperlink{classoli_1_1_observer}{Observer} $\ast$}]{obs }\end{DoxyParamCaption})}
+
+
+
+Definition at line 6 of file observable.\+cpp.
+
+
+\begin{DoxyCode}
+6                                      \{
+7     m\_list.push\_back(obs);
+8     obs->AddObs(\textcolor{keyword}{this});
+9 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_observable_a9fb13016d9b81c1132171b581e243d8b}{}\label{classoli_1_1_observable_a9fb13016d9b81c1132171b581e243d8b} 
+\index{oli\+::\+Observable@{oli\+::\+Observable}!Del\+Obs@{Del\+Obs}}
+\index{Del\+Obs@{Del\+Obs}!oli\+::\+Observable@{oli\+::\+Observable}}
+\subsubsection{\texorpdfstring{Del\+Obs()}{DelObs()}}
+{\footnotesize\ttfamily void oli\+::\+Observable\+::\+Del\+Obs (\begin{DoxyParamCaption}\item[{\hyperlink{classoli_1_1_observer}{Observer} $\ast$}]{obs }\end{DoxyParamCaption})}
+
+
+
+Definition at line 11 of file observable.\+cpp.
+
+
+\begin{DoxyCode}
+11                                     \{
+12     iterator it= find(m\_list.begin(),m\_list.end(),obs);
+13     \textcolor{keywordflow}{if}(it != m\_list.end())
+14         m\_list.erase(it);
+15 \}
+\end{DoxyCode}
+\hypertarget{classoli_1_1_observable_ab1fe0a40f7aaa9d9acee97f8c08ec328}{}\label{classoli_1_1_observable_ab1fe0a40f7aaa9d9acee97f8c08ec328} 
+\index{oli\+::\+Observable@{oli\+::\+Observable}!Notify@{Notify}}
+\index{Notify@{Notify}!oli\+::\+Observable@{oli\+::\+Observable}}
+\subsubsection{\texorpdfstring{Notify()}{Notify()}}
+{\footnotesize\ttfamily void oli\+::\+Observable\+::\+Notify (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 26 of file observable.\+cpp.
+
+
+\begin{DoxyCode}
+26                            \{
+27     iterator itb=m\_list.begin();
+28     const\_iterator ite=m\_list.end();
+29 
+30     \textcolor{keywordflow}{for}(;itb!=ite;++itb)\{
+31         (*itb)->Update();
+32     \}
+33 \}
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+observer/\hyperlink{observable_8h}{observable.\+h}\item 
+observer/\hyperlink{observable_8cpp}{observable.\+cpp}\end{DoxyCompactItemize}

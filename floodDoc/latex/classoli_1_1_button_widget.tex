@@ -1,0 +1,85 @@
+\hypertarget{classoli_1_1_button_widget}{}\section{oli\+:\+:Button\+Widget Class Reference}
+\label{classoli_1_1_button_widget}\index{oli\+::\+Button\+Widget@{oli\+::\+Button\+Widget}}
+
+
+The \hyperlink{classoli_1_1_button_widget}{Button\+Widget} class.  
+
+
+
+
+{\ttfamily \#include $<$buttonwidget.\+h$>$}
+
+Inheritance diagram for oli\+:\+:Button\+Widget\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classoli_1_1_button_widget}
+\end{center}
+\end{figure}
+\subsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classoli_1_1_button_widget_aff1ad492bde8150e865090bf98fd4c68}{clicked} (const Q\+String \&text)
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classoli_1_1_button_widget_af555496df54a4444217570f7ee49d582}{Button\+Widget} (int nb\+Col, Q\+Widget $\ast$parent=0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classoli_1_1_button_widget}{Button\+Widget} class. 
+
+Definition at line 17 of file buttonwidget.\+h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classoli_1_1_button_widget_af555496df54a4444217570f7ee49d582}{}\label{classoli_1_1_button_widget_af555496df54a4444217570f7ee49d582} 
+\index{oli\+::\+Button\+Widget@{oli\+::\+Button\+Widget}!Button\+Widget@{Button\+Widget}}
+\index{Button\+Widget@{Button\+Widget}!oli\+::\+Button\+Widget@{oli\+::\+Button\+Widget}}
+\subsubsection{\texorpdfstring{Button\+Widget()}{ButtonWidget()}}
+{\footnotesize\ttfamily oli\+::\+Button\+Widget\+::\+Button\+Widget (\begin{DoxyParamCaption}\item[{int}]{nb\+Col,  }\item[{Q\+Widget $\ast$}]{parent = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Definition at line 5 of file buttonwidget.\+cpp.
+
+
+\begin{DoxyCode}
+6     : QWidget(parent)
+7 \{
+8     signalMapper = \textcolor{keyword}{new} QSignalMapper(\textcolor{keyword}{this});
+9     QGridLayout *gridLayout = \textcolor{keyword}{new} QGridLayout;
+10 
+11     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 1; i <= nbCol; ++i) \{
+12 
+13         QPushButton *button = \textcolor{keyword}{new} QPushButton(\textcolor{stringliteral}{""});
+14         QColor col =\hyperlink{classoli_1_1_color_convert_a4c41280d24ad2cba4b2a46fbb03f2356}{ColorConvert::getQColor}(static\_cast<Color>(i-1));
+15         QString qss = QString(\textcolor{stringliteral}{"background-color: %1"}).arg(col.name());
+16         button->setStyleSheet(qss);
+17         button->setFocusPolicy(Qt::NoFocus);
+18         connect(button, SIGNAL(\hyperlink{classoli_1_1_button_widget_aff1ad492bde8150e865090bf98fd4c68}{clicked}()), signalMapper, SLOT(map()));
+19         signalMapper->setMapping(button,i);
+20         gridLayout->addWidget(button, (i-1) / 8, (i-1) % 8);
+21     \}
+22 
+23     connect(signalMapper, SIGNAL(mapped(\textcolor{keywordtype}{int})),parent, SLOT(play(\textcolor{keywordtype}{int})));
+24     setLayout(gridLayout);
+25 \}
+\end{DoxyCode}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classoli_1_1_button_widget_aff1ad492bde8150e865090bf98fd4c68}{}\label{classoli_1_1_button_widget_aff1ad492bde8150e865090bf98fd4c68} 
+\index{oli\+::\+Button\+Widget@{oli\+::\+Button\+Widget}!clicked@{clicked}}
+\index{clicked@{clicked}!oli\+::\+Button\+Widget@{oli\+::\+Button\+Widget}}
+\subsubsection{\texorpdfstring{clicked}{clicked}}
+{\footnotesize\ttfamily void oli\+::\+Button\+Widget\+::clicked (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{text }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+view/\hyperlink{buttonwidget_8h}{buttonwidget.\+h}\item 
+view/\hyperlink{buttonwidget_8cpp}{buttonwidget.\+cpp}\end{DoxyCompactItemize}
