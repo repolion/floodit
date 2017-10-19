@@ -1,11 +1,6 @@
-*********************************
-*								*
-*	Projet ATLIR5 - Flood It	*
-*	Olivier Cordier - 42442		*
-*								*
-*********************************
-
-
+#	Projet ATLIR5 - Flood It	
+##	Olivier Cordier - 42442		
+								
 Jeu flood it
 -------------
 
