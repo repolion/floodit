@@ -4,14 +4,11 @@ namespace oli {
 
 Floodgame::Floodgame(int height,int width,int nbColors)
 {
-    try
-    {
+    try{
         init(height,width,nbColors);
     }
-    catch (FloodException e)
-    {
+    catch (FloodException e){
         std::cerr << e.what();
-        exit(0);
     }
 }
 

@@ -11,11 +11,13 @@ Board::Board(int height, int width,int nbCol){
     if(_width<5 || _width>35||_height<5 || _height>35){
           throw FloodException {"Size invalid for the board, min 5 and max 35."};
     }
+    if(nbCol<2 || nbCol>8){
+          throw FloodException {"Number of color must be between 2 and 8"};
+    }
 
     for (int y=0; y<_height; y++){
         _squares.resize(height,std::vector<Square>(width));
     }
-
 
     for (int y = 0; y<_height; y++){
         for (int x = 0; x<_width; x++){
