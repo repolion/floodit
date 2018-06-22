@@ -1,4 +1,4 @@
-#	Projet ATLIR5 - Flood It	
+#	Projet ATLIR5 - Flood It - sous QT Creator	
 ##	Olivier Cordier - 42442		
 								
 Jeu flood it
