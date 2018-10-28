@@ -1,8 +1,8 @@
 *********************************
-*								*
-*	Projet ATLIR5 - Flood It	*
-*	Olivier Cordier - 42442		*
-*								*
+*			        *
+*    Projet ATLIR5 - Flood It	*
+*    Olivier Cordier - 42442    *
+*				*
 *********************************
 
 
@@ -14,11 +14,11 @@ Jeu flood it
 
 - New game (Jeu avec options)
 
-- choix => largeur du board (5 - 35)
+- Choix => largeur du board (5 - 35)
 		=> longueur du board (5 - 35)
 		=> nombre de couleurs jouables ( 2 - 8)
 
-- restart de la partie
+- Restart de la partie
 
 - Sauvegarde des meilleurs scores 
 
